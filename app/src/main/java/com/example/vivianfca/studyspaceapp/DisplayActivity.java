@@ -20,7 +20,7 @@ public class DisplayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_display);
 
         data = (TextView) findViewById(R.id.textView);
-        
+
         //direct to google maps button.
         Button directToGMaps = findViewById(R.id.directToGMaps);
         directToGMaps.setOnClickListener(new Button.OnClickListener() {

@@ -41,7 +41,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".FilterSearchActivity"
+            android:name=".MapActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".FilterActivity"></activity>
     </application>
