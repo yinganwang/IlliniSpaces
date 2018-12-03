@@ -1,5 +1,6 @@
 package com.example.vivianfca.studyspaceapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -52,6 +53,15 @@ public class FilterActivity extends AppCompatActivity {
             requestQueue.add(objectRequest);
 
             Button search = (Button) findViewById(R.id.search);
+            search.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent mapIntent = new Intent(getApplicationContext(), MapActivity.class);
+                    mapIntent.putExtra("com.example.vivianfca.StudySpaceApp.map",
+                            "HELLO WORLD");
+                    startActivity(mapIntent);
+                }
+            });
 
             //types of spaces
             CheckBox studyRoom = (CheckBox) findViewById(R.id.studyRoom);
