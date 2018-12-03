@@ -7,15 +7,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class DisplayActivity extends AppCompatActivity {
+
+    public static TextView data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
 
+        data = (TextView) findViewById(R.id.textView);
+        
         //direct to google maps button.
         Button directToGMaps = findViewById(R.id.directToGMaps);
         directToGMaps.setOnClickListener(new Button.OnClickListener() {
