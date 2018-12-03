@@ -40,6 +40,7 @@ public class FetchDataforFilter extends AsyncTask<Void,Void,Void> {
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
 
-        //FilterActivity.data
+        DisplayActivity.data.setText(this.data);
+
     }
 }

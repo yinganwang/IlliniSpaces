@@ -81,7 +81,8 @@ public class FilterActivity extends AppCompatActivity {
             search.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    FetchDataforFilter process = new FetchDataforFilter();
+                    process.execute();
                 }
             });
 
