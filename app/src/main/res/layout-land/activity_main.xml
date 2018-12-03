@@ -21,11 +21,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search"
+        app:layout_constraintTop_toBottomOf="@+id/directSearch"
         app:layout_constraintVertical_bias="0.361" />
 
     <Button
-        android:id="@+id/search"
+        android:id="@+id/directSearch"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="170dp"
         android:layout_height="48dp"

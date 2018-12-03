@@ -51,7 +51,7 @@ public class FilterActivity extends AppCompatActivity {
             );
             requestQueue.add(objectRequest);
 
-            Button search = (Button) findViewById(R.id.search);
+            Button search = (Button) findViewById(R.id.directSearch);
 
             //types of spaces
             CheckBox studyRoom = (CheckBox) findViewById(R.id.studyRoom);
