@@ -85,15 +85,15 @@
 
     <LinearLayout
         android:layout_width="89dp"
-        android:layout_height="129dp"
+        android:layout_height="145dp"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="231dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteY="16dp">
 
         <TextView
             android:id="@+id/i"
-            android:layout_width="39dp"
-            android:layout_height="60dp"
+            android:layout_width="56dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
             android:layout_marginLeft="28dp"
             android:layout_marginTop="60dp"
