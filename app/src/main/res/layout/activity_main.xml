@@ -8,15 +8,14 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/spaces"
         android:layout_width="226dp"
         android:layout_height="60dp"
         android:layout_marginTop="60dp"
-        android:layout_marginRight="72dp"
-        android:background="@color/colorPrimary"
+        android:layout_marginRight="68dp"
         android:text="SPACES"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@android:color/white"
         android:textSize="54sp"
         android:textStyle="bold"
         app:fontFamily="monospace"
@@ -29,43 +28,48 @@
         android:layout_height="54dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="52dp"
         android:background="@drawable/round"
         android:text="apply filters"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@android:color/white"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintHorizontal_bias="0.519"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="250dp"
-        android:layout_height="83dp"
+        android:id="@+id/welcome"
+        android:layout_width="274dp"
+        android:layout_height="96dp"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="96dp"
-        android:text="Search the UIUC campus for spaces and resources near you!"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="monospace"
+        android:lineSpacingExtra="8sp"
+        android:text="Search the UIUC campus for study spaces and resources near you!"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@android:color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/filter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.975" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="219dp"
         android:layout_height="62dp"
-        android:layout_marginStart="6dp"
+        android:layout_marginStart="5dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="156dp"
+        android:layout_marginBottom="116dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.758"
+        app:layout_constraintHorizontal_bias="0.664"
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
@@ -79,7 +83,7 @@
             android:layout_marginBottom="156dp"
             android:background="@drawable/round"
             android:text="      direct search"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@android:color/white"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -99,10 +103,10 @@
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.305"
+        app:layout_constraintHorizontal_bias="0.313"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/filter"
-        app:layout_constraintVertical_bias="0.467"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/maps_96in128dp" />
 
     <LinearLayout
@@ -114,7 +118,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/i"
             android:layout_width="39dp"
             android:layout_height="60dp"
             android:layout_marginStart="28dp"
@@ -122,14 +126,14 @@
             android:layout_marginTop="60dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorPrimaryDark"
             android:text="i"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
             android:textSize="54sp"
             android:textStyle="bold"
             app:fontFamily="monospace"
-            app:layout_constraintEnd_toStartOf="@+id/textView"
+            app:layout_constraintEnd_toStartOf="@+id/spaces"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -140,7 +144,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="312dp" />
+        app:layout_constraintGuide_begin="302dp" />
 
 
 </android.support.constraint.ConstraintLayout>
