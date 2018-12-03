@@ -2,9 +2,11 @@ package com.example.vivianfca.studyspaceapp;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
@@ -13,7 +15,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 /**
  * An activity that displays a Google map with a marker (pin) to indicate a particular location.
  */
-public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,4 +48,11 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 .title("Marker in Sydney"));
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
+    private void intializeMap() {
+        SupportMapFragment map;
+        map = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map));
+    }
+    MapFragment mMapFragment = MapFragment.newInstance();
+    //FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+
 }

@@ -100,9 +100,7 @@ public class FilterActivity extends AppCompatActivity {
 
             //--------------------Checkbox filtering---------------------------------//
 
-            if (studyRoom.isChecked()) {
-
-            }
+            for (int i = 0; i < JA.length(); i++)
         }
     }
 }
