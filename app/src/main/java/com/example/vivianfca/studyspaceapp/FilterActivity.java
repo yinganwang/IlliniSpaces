@@ -66,13 +66,14 @@ public class FilterActivity extends AppCompatActivity {
 
 
             //set onclick listener of the search button
-            filterSearch.setOnClickListener(new View.OnClickListener() {
+            /**filterSearch.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     FetchDataforFilter process = new FetchDataforFilter();
                     process.execute();
                 }
             });
+             */
 
             //types of spaces
             CheckBox studyRoom = (CheckBox) findViewById(R.id.studyRoom);
