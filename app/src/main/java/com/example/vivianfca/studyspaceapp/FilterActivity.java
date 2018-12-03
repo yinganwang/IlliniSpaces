@@ -1,6 +1,5 @@
 package com.example.vivianfca.studyspaceapp;
 
-import android.app.VoiceInteractor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
