@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/colorPrimaryDark"
     android:layout_height="match_parent">
 
 
@@ -10,8 +11,8 @@
         android:id="@+id/open"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="16dp"
         android:text="Open"
         app:layout_constraintBottom_toTopOf="@+id/lounge"
         app:layout_constraintStart_toStartOf="parent" />
@@ -20,8 +21,8 @@
         android:id="@+id/lounge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="16dp"
         android:text="Lounge"
         app:layout_constraintBottom_toTopOf="@+id/cafe"
         app:layout_constraintStart_toStartOf="parent" />
@@ -30,34 +31,34 @@
         android:id="@+id/cafe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="20dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:text="Cafe"
         app:layout_constraintBottom_toTopOf="@+id/outdoor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.026"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
         android:id="@+id/outdoor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="20dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="128dp"
         android:text="Outdoor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.028"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
         android:id="@+id/studyArea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="16dp"
         android:text="Study area"
         app:layout_constraintBottom_toTopOf="@+id/computerLab"
         app:layout_constraintStart_toStartOf="parent" />
@@ -66,8 +67,8 @@
         android:id="@+id/computerLab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="16dp"
         android:text="Computer lab"
         app:layout_constraintBottom_toTopOf="@+id/studio"
         app:layout_constraintStart_toStartOf="parent" />
@@ -76,8 +77,8 @@
         android:id="@+id/studio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="16dp"
         android:text="Studio"
         app:layout_constraintBottom_toTopOf="@+id/classroom"
         app:layout_constraintStart_toStartOf="parent" />
@@ -86,8 +87,8 @@
         android:id="@+id/classroom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="16dp"
         android:text="Conference/\nClassroom"
         app:layout_constraintBottom_toTopOf="@+id/open"
         app:layout_constraintStart_toStartOf="parent" />
@@ -96,8 +97,8 @@
         android:id="@+id/studyRoom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="16dp"
         android:text="Study room"
         app:layout_constraintBottom_toTopOf="@+id/studyArea"
         app:layout_constraintStart_toStartOf="parent" />
@@ -106,7 +107,7 @@
         android:id="@+id/resources"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:text="Resourses"
@@ -116,7 +117,7 @@
         app:layout_constraintBottom_toTopOf="@+id/whiteboard"
         app:layout_constraintStart_toEndOf="@+id/spaceType"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.518" />
+        app:layout_constraintVertical_bias="0.054" />
 
     <CheckBox
         android:id="@+id/whiteboard"
@@ -215,7 +216,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="Noise Level"
         android:textColor="@android:color/holo_orange_dark"
@@ -263,12 +264,12 @@
         android:fontFamily="sans-serif"
         android:text="Type of Space"
         android:textColor="@android:color/holo_orange_dark"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/studyRoom"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.451" />
+        app:layout_constraintVertical_bias="0.533" />
 
     <Button
         android:id="@+id/filterSearch"
