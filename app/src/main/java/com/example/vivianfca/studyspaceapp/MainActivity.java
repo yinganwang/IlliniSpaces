@@ -1,11 +1,13 @@
 package com.example.vivianfca.studyspaceapp;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +25,15 @@ public class MainActivity extends AppCompatActivity {
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, navigationIntentUri);
                 mapIntent.setPackage("com.google.android.apps.maps");
                 startActivity(mapIntent);
+                //message to display if maps isn't installed.
+                try
+                {
+                    startActivity(mapIntent);
+                }
+                catch(ActivityNotFoundException ex)
+                {
+                    Toast.makeText(getApplicationContext(), "Please install a maps application", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }

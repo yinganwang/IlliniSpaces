@@ -16,6 +16,7 @@ public class DisplayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
 
+        //direct to google maps button.
         Button directToGMaps = findViewById(R.id.directToGMaps);
         directToGMaps.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -24,22 +25,15 @@ public class DisplayActivity extends AppCompatActivity {
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, navigationIntentUri);
                 mapIntent.setPackage("com.google.android.apps.maps");
                 startActivity(mapIntent);
-                /* try
+                //message to display if maps isn't installed.
+                try
                 {
                     startActivity(mapIntent);
                 }
                 catch(ActivityNotFoundException ex)
                 {
-                    try
-                    {
-                        Intent unrestrictedIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-                        startActivity(unrestrictedIntent);
-                    }
-                    catch(ActivityNotFoundException innerEx)
-                    {
-                        Toast.makeText(this, "Please install a maps application", Toast.LENGTH_LONG).show();
-                    }
-                } **/
+                    Toast.makeText(getApplicationContext(), "Please install a maps application", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
