@@ -100,7 +100,7 @@ public class FilterActivity extends AppCompatActivity {
 
             //--------------------Checkbox filtering---------------------------------//
 
-            for (int i = 0; i < JA.length(); i++)
+            //for (int i = 0; i < JA.length(); i++)
         }
     }
 }
