@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //direct to google maps button.
-        Button directToGMaps = findViewById(R.id.filterSearch);
+        Button directToGMaps = findViewById(R.id.directSearch);
         directToGMaps.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
