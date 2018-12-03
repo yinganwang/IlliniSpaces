@@ -1,8 +1,8 @@
 package com.example.vivianfca.studyspaceapp;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -52,13 +52,13 @@ public class FilterActivity extends AppCompatActivity {
             );
             requestQueue.add(objectRequest);
 
-            Button search = (Button) findViewById(R.id.search);
-            search.setOnClickListener(new View.OnClickListener() {
+            Button filterSearch = (Button) findViewById(R.id.filterSearch);
+            filterSearch.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent mapIntent = new Intent(getApplicationContext(), MapActivity.class);
                     mapIntent.putExtra("com.example.vivianfca.StudySpaceApp.map",
-                            "HELLO WORLD");
+                            "HELLO MAP");
                     startActivity(mapIntent);
                 }
             });
@@ -88,7 +88,7 @@ public class FilterActivity extends AppCompatActivity {
             CheckBox notSilent = (CheckBox) findViewById(R.id.notSilent);
 
             //set onclick listener of the search button
-            search.setOnClickListener(new View.OnClickListener() {
+            filterSearch.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     FetchDataforFilter process = new FetchDataforFilter();

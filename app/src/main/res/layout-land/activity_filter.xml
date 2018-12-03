@@ -258,7 +258,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/directSearch"
+        android:id="@+id/filterSearch"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="175dp"
         android:layout_height="45dp"
