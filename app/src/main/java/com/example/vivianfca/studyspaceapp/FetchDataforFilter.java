@@ -37,14 +37,14 @@ public class FetchDataforFilter extends AsyncTask<Void,Void,Void> {
             JSONArray JA = new JSONArray(data);
             for (int i = 0; i < JA.length(); i++) {
                 JSONObject JO = (JSONObject) JA.get(i);
-                singleParsed = "Name" + JO.get("name") + "\n"
-                        + "Building" + JO.get("building") + "\n"
-                        + "Hours" + JO.get("hours") + "\n"
-                        + "Type of Space" + JO.get("type of space") + "\n"
-                        + "Location" + JO.get("location") + "\n"
-                        + "Address" + JO.get("address") + "\n"
-                        + "Resources" + JO.get("resources") + "\n"
-                        + "Noise Level" + JO.get("noise level");
+                singleParsed = "Name" + JO.get("Name") + "\n"
+                        + "Building" + JO.get("Building") + "\n"
+                        + "Hours" + JO.get("Hours") + "\n"
+                        + "Type of Space" + JO.get("Type of Space") + "\n"
+                        + "Location" + JO.get("Location") + "\n"
+                        + "Address" + JO.get("Address") + "\n"
+                        + "Resources" + JO.get("Resources") + "\n"
+                        + "Noise Level" + JO.get("Noise Level");
                 dataParsed = dataParsed + singleParsed + "\n";
             }
 
@@ -62,7 +62,7 @@ public class FetchDataforFilter extends AsyncTask<Void,Void,Void> {
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
 
-        DisplayActivity.data.setText(this.dataParsed);
+        //DisplayActivity.data.setText(this.dataParsed);
 
     }
 
