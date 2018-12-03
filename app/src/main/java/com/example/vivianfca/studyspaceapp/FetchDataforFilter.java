@@ -2,6 +2,10 @@ package com.example.vivianfca.studyspaceapp;
 
 import android.os.AsyncTask;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,6 +16,8 @@ import java.net.URL;
 
 public class FetchDataforFilter extends AsyncTask<Void,Void,Void> {
     String data = "";
+    String dataParsed = "";
+    String singleParsed = "";
 
     @Override
     protected Void doInBackground(Void... voids) {
@@ -28,9 +34,25 @@ public class FetchDataforFilter extends AsyncTask<Void,Void,Void> {
                 data = data + line;
             }
 
+            JSONArray JA = new JSONArray(data);
+            for (int i = 0; i < JA.length(); i++) {
+                JSONObject JO = (JSONObject) JA.get(i);
+                singleParsed = "Name" + JO.get("name") + "\n"
+                        + "Building" + JO.get("building") + "\n"
+                        + "Hours" + JO.get("hours") + "\n"
+                        + "Type of Space" + JO.get("type of space") + "\n"
+                        + "Location" + JO.get("location") + "\n"
+                        + "Address" + JO.get("address") + "\n"
+                        + "Resources" + JO.get("resources") + "\n"
+                        + "Noise Level" + JO.get("noise level");
+                dataParsed = dataParsed + singleParsed + "\n";
+            }
+
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
             e.printStackTrace();
         }
         return null;
@@ -40,7 +62,8 @@ public class FetchDataforFilter extends AsyncTask<Void,Void,Void> {
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
 
-        DisplayActivity.data.setText(this.data);
+        DisplayActivity.data.setText(this.dataParsed);
 
     }
+
 }
