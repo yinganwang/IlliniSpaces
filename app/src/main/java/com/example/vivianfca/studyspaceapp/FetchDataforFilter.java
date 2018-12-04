@@ -19,6 +19,7 @@ public class FetchDataforFilter extends AsyncTask<Void,Void,Void> {
     String dataParsed = "";
     String singleParsed = "";
 
+
     @Override
     protected Void doInBackground(Void... voids) {
         try {
@@ -35,18 +36,63 @@ public class FetchDataforFilter extends AsyncTask<Void,Void,Void> {
             }
 
             JSONArray JA = new JSONArray(data);
+
+            String[][] dataArray = new String[8][JA.length()];
+            String[] nameArr = new String[JA.length()];
+            String[] buildingArr = new String[JA.length()];
+            String[] hoursArr = new String[JA.length()];
+            String[] typeArr = new String[JA.length()];
+            String[] locArr = new String[JA.length()];
+            String[] addressArr = new String[JA.length()];
+            String[] resourcesArr = new String[JA.length()];
+            String[] noiseArr = new String[JA.length()];
+
+            //------------------prepare data arrays for filtering-------------------//
             for (int i = 0; i < JA.length(); i++) {
                 JSONObject JO = (JSONObject) JA.get(i);
-                singleParsed = "Name" + JO.get("Name") + "\n"
-                        + "Building" + JO.get("Building") + "\n"
-                        + "Hours" + JO.get("Hours") + "\n"
-                        + "Type of Space" + JO.get("Type of Space") + "\n"
-                        + "Location" + JO.get("Location") + "\n"
-                        + "Address" + JO.get("Address") + "\n"
-                        + "Resources" + JO.get("Resources") + "\n"
-                        + "Noise Level" + JO.get("Noise Level");
-                dataParsed = dataParsed + singleParsed + "\n";
+                nameArr[i] = (String) JO.get("Name");
+                buildingArr[i] = (String) JO.get("Building");
+                hoursArr[i] = (String) JO.get("Hours");
+                typeArr[i] = (String) JO.get("Type of Space");
+                locArr[i] = (String) JO.get("Location");
+                addressArr[i] = (String) JO.get("Address");
+                resourcesArr[i] = (String) JO.get("Resources");
+                noiseArr[i] = (String) JO.get("Noise Level");
             }
+
+            dataArray[0] = nameArr;
+            dataArray[1] = buildingArr;
+            dataArray[2] = hoursArr;
+            dataArray[3] = typeArr;
+            dataArray[4] = locArr;
+            dataArray[5] = addressArr;
+            dataArray[6] = resourcesArr;
+            dataArray[7] = noiseArr;
+
+
+
+
+
+
+
+            //----------------------parse data after filtering--------//
+
+//            for (int i = 0; i < JA.length(); i++) {
+//                JSONObject JO = (JSONObject) JA.get(i);
+//                singleParsed = "Name" + JO.get("Name") + "\n"
+//                        + "Building" + JO.get("Building") + "\n"
+//                        + "Hours" + JO.get("Hours") + "\n"
+//                        + "Type of Space" + JO.get("Type of Space") + "\n"
+//                        + "Location" + JO.get("Location") + "\n"
+//                        + "Address" + JO.get("Address") + "\n"
+//                        + "Resources" + JO.get("Resources") + "\n"
+//                        + "Noise Level" + JO.get("Noise Level");
+//                dataParsed = dataParsed + singleParsed + "\n";
+//
+//
+//                String[] singleVariable = new String[8];
+//                dataArray[i] = singleDataArray;
+//            }
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
