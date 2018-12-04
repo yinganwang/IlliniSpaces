@@ -32,7 +32,7 @@
         android:layout_width="226dp"
         android:layout_height="60dp"
         android:layout_marginTop="36dp"
-        android:layout_marginEnd="204dp"
+        android:layout_marginEnd="216dp"
         android:text="SPACES"
         android:textAlignment="center"
         android:textColor="@android:color/white"
