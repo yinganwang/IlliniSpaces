@@ -58,6 +58,12 @@ public class FetchDataforFilter extends AsyncTask<Void,Void,Void> {
                 addressArr[i] = (String) JO.get("Address");
                 resourcesArr[i] = (String) JO.get("Resources");
                 noiseArr[i] = (String) JO.get("Noise Level");
+
+
+
+                String[] typeSplited = typeArr[i].split(",");
+
+                String[] typeSplited = typeArr[i].split(",");
             }
 
             dataArray[0] = nameArr;
@@ -68,6 +74,7 @@ public class FetchDataforFilter extends AsyncTask<Void,Void,Void> {
             dataArray[5] = addressArr;
             dataArray[6] = resourcesArr;
             dataArray[7] = noiseArr;
+
 
 
 

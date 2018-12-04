@@ -82,7 +82,6 @@ public class FilterActivity extends AppCompatActivity {
             CheckBox open = (CheckBox) findViewById(R.id.open);
             CheckBox lounge = (CheckBox) findViewById(R.id.lounge);
             CheckBox cafe = (CheckBox) findViewById(R.id.cafe);
-            CheckBox outdoor = (CheckBox) findViewById(R.id.outdoor);
 
             //Resources
             CheckBox whiteboard = (CheckBox) findViewById(R.id.whiteboard);
@@ -99,7 +98,49 @@ public class FilterActivity extends AppCompatActivity {
 
             //--------------------Checkbox filtering---------------------------------//
 
-            //for (int i = 0; i < JA.length(); i++)
+            CheckBox[] filterBoxes = new CheckBox[17];
+            filterBoxes[0] = studyRoom;
+            filterBoxes[1] = studyArea;
+            filterBoxes[2] = computerLab;
+            filterBoxes[3] = studio;
+            filterBoxes[4] = classroom;
+            filterBoxes[5] = open;
+            filterBoxes[6] = lounge;
+            filterBoxes[7] = cafe;
+            filterBoxes[8] = whiteboard;
+            filterBoxes[9] = outlets;
+            filterBoxes[10] = computers;
+            filterBoxes[11] = scanning;
+            filterBoxes[12] = largeDisplay;
+            filterBoxes[13] = projector;
+            filterBoxes[14] = printing;
+            filterBoxes[15] = silent;
+            filterBoxes[16] = notSilent;
+
+            String[] filterArray = new String[17];
+            filterArray[0] = "Study room";
+            filterArray[1] = "Study area";
+            filterArray[2] = "Computer lab";
+            filterArray[3] = "Studio";
+            filterArray[4] = "Classroom";
+            filterArray[5] = "Open space";
+            filterArray[6] = "Lounge";
+            filterArray[7] = "Cafe";
+            filterArray[8] = "Whiteboards";
+            filterArray[9] = "Outlets";
+            filterArray[10] = "Computers";
+            filterArray[11] = "Scanning";
+            filterArray[12] = "Display";
+            filterArray[13] = "Projector";
+            filterArray[14] = "Printing";
+            filterArray[15] = "quiet";
+            filterArray[16] = "variable";
+
+            for (int i = 0; i < filterBoxes.length; i++) {
+                if (filterBoxes[i].isChecked()) {
+
+                }
+            }
         }
     }
 }

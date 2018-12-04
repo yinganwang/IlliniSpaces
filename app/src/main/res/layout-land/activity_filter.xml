@@ -42,17 +42,6 @@
         app:layout_constraintTop_toBottomOf="@+id/lounge" />
 
     <CheckBox
-        android:id="@+id/outdoor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="75dp"
-        android:layout_marginTop="16dp"
-        android:text="Outdoor"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/studio"
-        app:layout_constraintTop_toBottomOf="@+id/cafe" />
-
-    <CheckBox
         android:id="@+id/studyArea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -135,7 +124,7 @@
         android:id="@+id/outlets"
         android:layout_width="78dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
+        android:layout_marginStart="34dp"
         android:layout_marginTop="16dp"
         android:text="Outlets"
         android:textStyle="bold"
@@ -160,27 +149,27 @@
         android:id="@+id/scanning"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="Scanning"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
-        app:layout_constraintStart_toEndOf="@+id/outdoor"
+        app:layout_constraintHorizontal_bias="0.372"
+        app:layout_constraintStart_toEndOf="@+id/studio"
         app:layout_constraintTop_toBottomOf="@+id/computers" />
 
     <CheckBox
         android:id="@+id/largeDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
+        android:layout_marginStart="159dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="132dp"
         android:text="Large display (for laptop)"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.024"
         app:layout_constraintStart_toEndOf="@+id/classroom"
         app:layout_constraintTop_toBottomOf="@+id/scanning" />
 
