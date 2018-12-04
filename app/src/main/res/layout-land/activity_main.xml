@@ -31,14 +31,15 @@
         android:id="@+id/spaces"
         android:layout_width="226dp"
         android:layout_height="60dp"
-        android:layout_marginEnd="212dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="204dp"
         android:text="SPACES"
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="54sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="36dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/filter"
@@ -60,7 +61,7 @@
     <TextView
         android:id="@+id/welcome"
         android:layout_width="401dp"
-        android:layout_height="68dp"
+        android:layout_height="64dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
