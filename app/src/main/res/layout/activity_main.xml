@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/colorDarkBlue"
     tools:context=".MainActivity">
 
     <TextView
@@ -27,8 +27,8 @@
         android:layout_width="185dp"
         android:layout_height="54dp"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/round"
         android:text="apply filters"
         android:textColor="@android:color/white"
@@ -36,28 +36,27 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/welcome"
-        android:layout_width="274dp"
-        android:layout_height="96dp"
+        android:layout_width="304dp"
+        android:layout_height="94dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginTop="220dp"
         android:fontFamily="monospace"
         android:lineSpacingExtra="8sp"
         android:text="Search the UIUC campus for study spaces and resources near you!"
         android:textAlignment="center"
+        android:textAllCaps="true"
         android:textColor="@android:color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/filter"
+        android:textSize="17sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.865" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -65,7 +64,7 @@
         android:layout_height="62dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="116dp"
+        android:layout_marginBottom="164dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,7 +73,7 @@
 
         <Button
             android:id="@+id/directSearch"
-            android:layout_width="169dp"
+            android:layout_width="168dp"
             android:layout_height="54dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
@@ -95,10 +94,10 @@
         android:id="@+id/imageButton4"
         android:layout_width="45dp"
         android:layout_height="54dp"
-        android:layout_marginStart="6dp"
+        android:layout_marginStart="3dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="6dp"
-        android:layout_marginBottom="124dp"
+        android:layout_marginBottom="123dp"
         android:background="@drawable/round"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -106,7 +105,7 @@
         app:layout_constraintHorizontal_bias="0.313"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/filter"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.395"
         app:srcCompat="@drawable/maps_96in128dp" />
 
     <LinearLayout
@@ -126,7 +125,7 @@
             android:layout_marginTop="60dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/colorDarkBlue"
             android:text="i"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"

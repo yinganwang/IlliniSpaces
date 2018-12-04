@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/colorDarkBlue"
     tools:context=".MainActivity"
     tools:layout_editor_absoluteY="73dp">
 
@@ -15,7 +15,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/colorDarkBlue"
         android:text="i"
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
