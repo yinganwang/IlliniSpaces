@@ -14,6 +14,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="16dp"
         android:text="Open"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/lounge"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -24,6 +25,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="16dp"
         android:text="Lounge"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/cafe"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -35,6 +37,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
         android:text="Cafe"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/outdoor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -48,6 +51,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="128dp"
         android:text="Outdoor"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -60,6 +64,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="16dp"
         android:text="Study area"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/computerLab"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -70,6 +75,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="16dp"
         android:text="Computer lab"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/studio"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -80,6 +86,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="16dp"
         android:text="Studio"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/classroom"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -91,7 +98,8 @@
         android:layout_marginBottom="16dp"
         android:text="Conference/\nClassroom"
         app:layout_constraintBottom_toTopOf="@+id/open"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold" />
 
     <CheckBox
         android:id="@+id/studyRoom"
@@ -100,6 +108,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="16dp"
         android:text="Study room"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/studyArea"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -112,20 +121,21 @@
         android:layout_marginBottom="8dp"
         android:text="Resourses"
         android:textColor="@android:color/holo_orange_dark"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/whiteboard"
         app:layout_constraintStart_toEndOf="@+id/spaceType"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.054" />
+        app:layout_constraintVertical_bias="0.563" />
 
     <CheckBox
         android:id="@+id/whiteboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="16dp"
         android:text="Whiteboard"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/outlets"
         app:layout_constraintStart_toEndOf="@+id/studyRoom" />
 
@@ -134,8 +144,9 @@
         android:layout_width="78dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="34dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:text="Outlets"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/computers"
         app:layout_constraintStart_toEndOf="@+id/studyArea" />
 
@@ -145,8 +156,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:text="Computers"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/scanning"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -158,8 +170,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="61dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:text="Scanning"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/largeDisplay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -171,8 +184,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:text="Large display (for laptop)"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/projector"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -184,8 +198,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="68dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:text="Projector"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/printing"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -197,8 +212,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="144dp"
+        android:layout_marginBottom="224dp"
         android:text="Printing"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -215,15 +231,12 @@
         android:id="@+id/noise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="48dp"
         android:text="Noise Level"
         android:textColor="@android:color/holo_orange_dark"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toEndOf="@+id/resources"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -232,11 +245,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
         android:text="Silent"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.291"
+        app:layout_constraintHorizontal_bias="0.169"
         app:layout_constraintStart_toEndOf="@+id/whiteboard"
         app:layout_constraintTop_toBottomOf="@+id/noise" />
 
@@ -249,11 +263,13 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="Not Silent"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.238"
         app:layout_constraintStart_toEndOf="@+id/outlets"
         app:layout_constraintTop_toBottomOf="@+id/silent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.023" />
 
     <TextView
         android:id="@+id/spaceType"
@@ -264,7 +280,7 @@
         android:fontFamily="sans-serif"
         android:text="Type of Space"
         android:textColor="@android:color/holo_orange_dark"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/studyRoom"
         app:layout_constraintStart_toStartOf="parent"
@@ -282,6 +298,7 @@
         android:layout_marginBottom="8dp"
         android:text="Search"
         android:textAlignment="center"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

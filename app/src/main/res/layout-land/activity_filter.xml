@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:layout_editor_absoluteY="73dp">
 
 
@@ -12,8 +13,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="Open"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/studyArea"
         app:layout_constraintTop_toBottomOf="@+id/spaceType" />
 
@@ -22,8 +24,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="43dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="Lounge"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/studyRoom"
         app:layout_constraintTop_toBottomOf="@+id/open" />
 
@@ -32,8 +35,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="Cafe"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/computerLab"
         app:layout_constraintTop_toBottomOf="@+id/lounge" />
 
@@ -42,8 +46,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="75dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="Outdoor"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/studio"
         app:layout_constraintTop_toBottomOf="@+id/cafe" />
 
@@ -52,8 +57,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="Study area"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spaceType" />
 
@@ -62,8 +68,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="Computer lab"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/studyRoom" />
 
@@ -72,8 +79,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="Studio"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/computerLab" />
 
@@ -82,8 +90,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="Classroom"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/studio" />
 
@@ -92,8 +101,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="Study room"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/studyArea" />
 
@@ -101,11 +111,11 @@
         android:id="@+id/resources"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="16dp"
         android:text="Resourses"
         android:textColor="@android:color/holo_orange_dark"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/spaceType"
         app:layout_constraintTop_toTopOf="parent" />
@@ -114,9 +124,10 @@
         android:id="@+id/whiteboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="16dp"
         android:text="Whiteboard"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/open"
         app:layout_constraintTop_toBottomOf="@+id/resources" />
 
@@ -124,9 +135,10 @@
         android:id="@+id/outlets"
         android:layout_width="78dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="16dp"
         android:text="Outlets"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/lounge"
         app:layout_constraintTop_toBottomOf="@+id/whiteboard" />
 
@@ -134,23 +146,25 @@
         android:id="@+id/computers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="Computers"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.106"
+        app:layout_constraintHorizontal_bias="0.084"
         app:layout_constraintStart_toEndOf="@+id/cafe"
-        app:layout_constraintTop_toBottomOf="@+id/outlets" />
+        app:layout_constraintTop_toBottomOf="@+id/outlets"
+        android:textStyle="bold" />
 
     <CheckBox
         android:id="@+id/scanning"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="Scanning"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.052"
         app:layout_constraintStart_toEndOf="@+id/outdoor"
@@ -160,11 +174,13 @@
         android:id="@+id/largeDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="132dp"
         android:text="Large display (for laptop)"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/classroom"
         app:layout_constraintTop_toBottomOf="@+id/scanning" />
 
@@ -172,12 +188,13 @@
         android:id="@+id/projector"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="Projector"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.553"
+        app:layout_constraintHorizontal_bias="0.472"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/largeDisplay" />
 
@@ -186,11 +203,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="Printing"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.539"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/projector" />
 
@@ -199,21 +217,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="315dp" />
+        app:layout_constraintGuide_end="403dp" />
 
     <TextView
         android:id="@+id/noise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="Noise Level"
         android:textColor="@android:color/holo_orange_dark"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.585"
+        app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toEndOf="@+id/resources"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -222,9 +240,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="Silent"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.468"
         app:layout_constraintStart_toEndOf="@+id/whiteboard"
@@ -235,11 +254,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="Not Silent"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.669"
+        app:layout_constraintHorizontal_bias="0.593"
         app:layout_constraintStart_toEndOf="@+id/outlets"
         app:layout_constraintTop_toBottomOf="@+id/silent" />
 
@@ -248,11 +268,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="sans-serif"
         android:text="Type of Space"
         android:textColor="@android:color/holo_orange_dark"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -266,6 +286,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:text="Search"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.982"
