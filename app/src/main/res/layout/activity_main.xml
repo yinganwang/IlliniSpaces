@@ -111,8 +111,9 @@
     <LinearLayout
         android:layout_width="81dp"
         android:layout_height="132dp"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="95dp"
         android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@+id/spaces"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 

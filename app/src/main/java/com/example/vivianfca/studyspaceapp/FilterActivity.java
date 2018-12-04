@@ -64,7 +64,6 @@ public class FilterActivity extends AppCompatActivity {
             });
 
 
-
             //set onclick listener of the search button
             /**filterSearch.setOnClickListener(new View.OnClickListener() {
                 @Override
