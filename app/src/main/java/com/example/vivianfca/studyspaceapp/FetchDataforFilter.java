@@ -63,7 +63,7 @@ public class FetchDataforFilter extends AsyncTask<Void,Void,Void> {
 
                 String[] typeSplited = typeArr[i].split(",");
 
-                String[] typeSplited = typeArr[i].split(",");
+
             }
 
             dataArray[0] = nameArr;
@@ -74,7 +74,6 @@ public class FetchDataforFilter extends AsyncTask<Void,Void,Void> {
             dataArray[5] = addressArr;
             dataArray[6] = resourcesArr;
             dataArray[7] = noiseArr;
-
 
 
 
@@ -118,5 +117,7 @@ public class FetchDataforFilter extends AsyncTask<Void,Void,Void> {
         DisplayActivity.data.setText(this.dataParsed);
 
     }
+
+
 
 }

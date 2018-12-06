@@ -17,10 +17,23 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 
 public class FilterActivity extends AppCompatActivity {
+    public static List<String> filteredForDisplay;
+    public static String finalDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,14 +151,90 @@ public class FilterActivity extends AppCompatActivity {
             filterArray[14] = "Printing";
             filterArray[15] = "quiet";
             filterArray[16] = "variable";
-
-            List<String> checkedItems = new ArrayList<>();
-
+//
+//            List<String> checkedItems = new ArrayList<>();
+//
+//            for (int i = 0; i < filterBoxes.length; i++) {
+//                if (filterBoxes[i].isChecked()) {
+//                    checkedItems.add(filterArray[i]);
+//                }
+//            }
+            final String USER_AGENT = "Yingan/5.0";
+            String checkedString = "";
+            String url = "https://api.myjson.com/bins/1dwygq/?q={}&filter=";
+            List<String> filtered = new ArrayList<>();
+//            int count = 0;
             for (int i = 0; i < filterBoxes.length; i++) {
                 if (filterBoxes[i].isChecked()) {
-                    checkedItems.add(filterArray[i]);
+//                    count++;
+                    checkedString = filterArray[i];
+                    url += checkedString;
+                    URL obj = null;
+                    try {
+                        obj = new URL(url);
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
+                    HttpURLConnection con = null;
+                    try {
+                        con = (HttpURLConnection) obj.openConnection();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    // optional default is GET
+                    try {
+                        con.setRequestMethod("GET");
+                    } catch (ProtocolException e) {
+                        e.printStackTrace();
+                    }
+
+                    //add request header
+                    con.setRequestProperty("User-Agent", USER_AGENT);
+
+                    int responseCode = 0;
+                    try {
+                        responseCode = con.getResponseCode();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+//                    System.out.println("\nSending 'GET' request to URL : " + url);
+//                    System.out.println("Response Code : " + responseCode);
+
+                    BufferedReader in = null;
+                    try {
+                        in = new BufferedReader(
+                                new InputStreamReader(con.getInputStream()));
+                        String inputLine = "";
+                        while ((inputLine = in.readLine()) != null) {
+                            //response.append(inputLine);
+                            final HashMap<String, Integer> hm = new HashMap();
+                            //final Set<String> set1 = new HashSet<String>();
+                            for (String j : filtered) {
+                                if (hm.get(j) == i) {
+                                    hm.put(j, hm.get(j) + 1);
+                                    filtered.add(inputLine);
+                                }
+                            }
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    //StringBuffer response = new StringBuffer();
+
+                    try {
+                        in.close();
+                        filteredForDisplay = filtered;
+                        finalDisplay = filteredForDisplay.toString();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
     }
+//    public void sendGet() throws Exception {
+//
+//
+//    }
 }

@@ -14,12 +14,15 @@ public class DisplayActivity extends AppCompatActivity {
 
     public static TextView data;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
 
         data = (TextView) findViewById(R.id.spaces);
+        data.setText(FilterActivity.finalDisplay);
+
 
         //direct to google maps button.
         Button directToGMaps = findViewById(R.id.directToGMaps);
@@ -42,4 +45,5 @@ public class DisplayActivity extends AppCompatActivity {
             }
         });
     }
+
 }
