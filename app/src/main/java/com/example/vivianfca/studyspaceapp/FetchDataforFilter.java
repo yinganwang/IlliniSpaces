@@ -110,13 +110,13 @@ public class FetchDataforFilter extends AsyncTask<Void,Void,Void> {
         return null;
     }
 
-    @Override
-    protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
-
-        DisplayActivity.data.setText(this.dataParsed);
-
-    }
+//    @Override
+//    protected void onPostExecute(Void aVoid) {
+//        super.onPostExecute(aVoid);
+//
+//        DisplayActivity.data.setText(this.dataParsed);
+//
+//    }
 
 
 

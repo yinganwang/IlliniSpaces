@@ -36,10 +36,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
         android:text="Cafe"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/computerLab"
-        app:layout_constraintTop_toBottomOf="@+id/lounge" />
+        app:layout_constraintTop_toBottomOf="@+id/lounge"
+        app:layout_constraintVertical_bias="0.0" />
 
     <CheckBox
         android:id="@+id/studyArea"
@@ -80,10 +83,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
         android:text="Classroom"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/studio" />
+        app:layout_constraintTop_toBottomOf="@+id/studio"
+        app:layout_constraintVertical_bias="0.0" />
 
     <CheckBox
         android:id="@+id/studyRoom"
@@ -194,8 +200,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="Printing"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
@@ -245,12 +253,15 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="Not Silent"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.593"
         app:layout_constraintStart_toEndOf="@+id/outlets"
-        app:layout_constraintTop_toBottomOf="@+id/silent" />
+        app:layout_constraintTop_toBottomOf="@+id/silent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/spaceType"

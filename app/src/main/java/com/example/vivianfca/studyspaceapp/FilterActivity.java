@@ -1,5 +1,6 @@
 package com.example.vivianfca.studyspaceapp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -72,7 +73,7 @@ public class FilterActivity extends AppCompatActivity {
             filterSearch.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent mapIntent = new Intent(getApplicationContext(), MapActivity.class);
+                    Intent mapIntent = new Intent(getApplicationContext(), DisplayActivity.class);
                     mapIntent.putExtra("com.example.vivianfca.StudySpaceApp.map",
                             "HELLO MAP");
                     startActivity(mapIntent);

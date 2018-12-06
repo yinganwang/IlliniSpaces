@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.vivianfca.studyspaceapp">
 
+
     <!--
         internet permision
     -->
@@ -32,9 +33,10 @@
             </intent-filter>
         </activity>
 
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
+
+        <!--<meta-data-->
+            <!--android:name="com.google.android.gms.version"-->
+            <!--android:value="@integer/google_play_services_version" />-->
 
 
         <!--
@@ -43,19 +45,21 @@
              Note that the API key is linked to the encryption key used to sign the APK.
              You need a different API key for each encryption key, including the release key that is used to
              sign the APK for publishing.
-             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyC5yiFSL2efc39scJ2HRGEKIL8M9_VWYV4" />
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
+        <!--<meta-data-->
+            <!--android:name="com.google.android.geo.API_KEY"-->
+            <!--android:value="AIzaSyC5yiFSL2efc39scJ2HRGEKIL8M9_VWYV4" />-->
+        <!--<meta-data-->
+            <!--android:name="preloaded_fonts"-->
+            <!--android:resource="@array/preloaded_fonts" />-->
 
         <activity
             android:name=".MapActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".FilterActivity"/>
+        <activity android:name=".DisplayActivity"></activity>
+
 
     </application>
 
