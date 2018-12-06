@@ -17,6 +17,9 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class FilterActivity extends AppCompatActivity {
 
     @Override
@@ -136,9 +139,11 @@ public class FilterActivity extends AppCompatActivity {
             filterArray[15] = "quiet";
             filterArray[16] = "variable";
 
+            List<String> checkedItems = new ArrayList<>();
+
             for (int i = 0; i < filterBoxes.length; i++) {
                 if (filterBoxes[i].isChecked()) {
-
+                    checkedItems.add(filterArray[i]);
                 }
             }
         }
