@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -14,26 +15,33 @@ import android.widget.Toast;
 
 public class DisplayActivity extends AppCompatActivity {
 
-    public static TextView data;
-    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
 
-        data = (TextView) findViewById(R.id.spaces);
-        String next = FetchDataforFilter.finalDisplay;
-        System.out.println("CS125" + next);
-        next = getResources().getString(R.string.spaces_result_displayed);
-        data.setText(next);
-
-
-
-
-//        data.setText("null");
-        data.setText(FilterActivity.finalDisplay);
-        System.out.println("cocococococo"+ FilterActivity.finalDisplay);
+        TextView data = (TextView) findViewById(R.id.spaces);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String value = extras.getString("key");
+            //get the value based on the key
+            data.setText(value);
+        } else {
+            data.setText("xixi");
+        }
+//        String next = FilterActivity.finalDisplay;
+//
+//        //System.out.println("CS125" + next);
+//        //next = getResources().getString(R.string.spaces_result_displayed);
+//        data.setText(next);
+//
+//
+//
+//
+////        data.setText("null");
+//        data.setText(FilterActivity.finalDisplay);
+//        System.out.println("cocococococo"+ FilterActivity.finalDisplay);
 //        FilterActivity.update(data);
 
         //direct to google maps button.

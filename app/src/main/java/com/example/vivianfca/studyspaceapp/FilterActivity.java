@@ -19,10 +19,12 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -35,13 +37,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
-import com.example.vivianfca.studyspaceapp.FetchDataforFilter;
+//import com.example.vivianfca.studyspaceapp.FetchDataforFilter;
 
 public class FilterActivity extends AppCompatActivity {
-    public static List<String> filteredForDisplay;
-    public static String finalDisplay;
-    public static CheckBox[] filterBoxes = new CheckBox[17];
-
+    //public static List<String> filteredForDisplay;
+    public CheckBox[] filterBoxes = new CheckBox[17];
+    //public String toPass = "hooo";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,63 +53,8 @@ public class FilterActivity extends AppCompatActivity {
         //If the filter activity is invoked
         if (getIntent().hasExtra("com.example.vivianfca.StudySpaceApp.something")) {
 
-//            //JSON API
-//            RequestQueue requestQueue = Volley.newRequestQueue(this);
-//
-//            String URL = "https://api.myjson.com/bins/1dwygq";
-//
-//            JsonArrayRequest getRequest = new JsonArrayRequest(Request.Method.GET, URL, null,
-//                    new Response.Listener<JSONArray>()
-//                    {
-//                        @Override
-//                        public void onResponse(JSONArray response) {
-//                            // display response
-//                            Log.d("Response", response.toString());
-//                        }
-//                    },
-//                    new Response.ErrorListener()
-//                    {
-//                        @Override
-//                        public void onErrorResponse(VolleyError error) {
-//                            Log.d("Error.Response", error.toString());
-//                        }
-//                    }
-//            );
-//
-//            System.out.println("!!!!!!!!"+ FetchDataforFilter.toReturn);
-
-//            //JSON object
-//            JsonObjectRequest objectRequest = new JsonObjectRequest(
-//                    Request.Method.GET,
-//                    URL,
-//                    null,
-//                    new Response.Listener<JSONObject>() {
-//                        @Override
-//                        public void onResponse(JSONObject response) {
-//                            Log.e("Rest Response", response.toString());
-//                        }
-//                    },
-//                    new Response.ErrorListener() {
-//                        @Override
-//                        public void onErrorResponse(VolleyError error) {
-//                            Log.e("Rest Response", error.toString());
-//                        }
-//                    }
-//            );
-//            requestQueue.add(objectRequest);
 
             Button filterSearch = (Button) findViewById(R.id.filterSearch);
-//            filterSearch.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent mapIntent = new Intent(getApplicationContext(), DisplayActivity.class);
-//                    mapIntent.putExtra("com.example.vivianfca.StudySpaceApp.map",
-//                            "HELLO MAP");
-//                    startActivity(mapIntent);
-//                    FetchDataforFilter process = new FetchDataforFilter();
-//                    process.execute();
-//                }
-//            });
 
             //set onclick listener of the search button
             filterSearch.setOnClickListener(new View.OnClickListener() {
@@ -160,11 +106,184 @@ public class FilterActivity extends AppCompatActivity {
                     filterBoxes[15] = silent;
                     filterBoxes[16] = notSilent;
 
-                    FetchDataforFilter process = new FetchDataforFilter();
-                    process.doInBackground();
+                    String data = "";
+                    List<JSONObject> toReturn = new ArrayList<>();
+                    JSONArray JA;
+
+                    String[] typeArr;
+                    String[] resourcesArr;
+                    String[] noiseArr;
+
+                    String[] nameArr;
+                    String[] buildingArr;
+                    String[] hoursArr;
+                    String[] locArr;
+                    String[] addressArr;
+                    String finalDisplay = "";
+                    List<String> filtered = new ArrayList<>();
+                    List<JSONObject> readytoReturn = new ArrayList<>();
+                    List<String> tmp = new ArrayList<>();
+                    HashMap<String, Integer> hm = new HashMap<>();
+                    int count = 0;
+
+                    try {
+                        URL url = new URL("https://api.myjson.com/bins/1dwygq");
+
+                        HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+
+                        InputStream inputStream = httpURLConnection.getInputStream();
+                        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                        String line = "";
+                        while (line != null) {
+                            line = bufferedReader.readLine();
+                            data = data + line;
+                        }
+                        String[] splited = data.split("\\s*,\\s*", -1);
+                        //System.out.println("printdata" + data);
+                        JA = new JSONArray(data);
+//                        JSONObject obj = new JSONObject(data);
+//                        System.out.println("zizizizi" + JA);
+//                        JA = new JSONArray();
+//                        JSONArray Jarray = obj.getJSONArray("Address");
+
+                        //dataArray = new String[8][JA.length()];
+
+                        nameArr = new String[splited.length];
+                        buildingArr = new String[splited.length];
+                        hoursArr = new String[splited.length];
+                        typeArr = new String[splited.length];
+                        locArr = new String[splited.length];
+                        addressArr = new String[splited.length];
+                        resourcesArr = new String[splited.length];
+                        noiseArr = new String[splited.length];
+                        
+
+
+                        //-----------------add JSON object to a list for filtering---------------//
+                        for (int i = 0; i < splited.length; i++) {
+                            JSONObject JO = (JSONObject) JA.get(i);
+
+                            nameArr[i] = (String) JO.get("Name");
+                            buildingArr[i] = (String) JO.get("Building");
+                            hoursArr[i] = (String) JO.get("Hours");
+                            typeArr[i] = (String) JO.get("Type of Space");
+                            locArr[i] = (String) JO.get("Location");
+                            addressArr[i] = (String) JO.get("Address");
+                            resourcesArr[i] = (String) JO.get("Resources");
+                            noiseArr[i] = (String) JO.get("Noise Level");
+
+                            toReturn.add(JO);
+                            //System.out.println(JO);
+
+
+                            String[] filterArray = new String[17];
+                            filterArray[0] = "Study room";
+                            filterArray[1] = "Study area";
+                            filterArray[2] = "Computer lab";
+                            filterArray[3] = "Studio";
+                            filterArray[4] = "Classroom";
+                            filterArray[5] = "Open space";
+                            filterArray[6] = "Lounge";
+                            filterArray[7] = "Cafe";
+                            filterArray[8] = "Whiteboards";
+                            filterArray[9] = "Outlets";
+                            filterArray[10] = "Computers";
+                            filterArray[11] = "Scanning";
+                            filterArray[12] = "Display";
+                            filterArray[13] = "Projector";
+                            filterArray[14] = "Printing";
+                            filterArray[15] = "quiet";
+                            filterArray[16] = "variable";
+
+
+                            //-------------------------filtering--------------------------------//
+
+
+
+                            for (int j = 0; j < filterBoxes.length; j++) {
+                                if (filterBoxes[j].isChecked()) {
+                                    count++;
+//                    checkedString = filterArray[i];
+//                    url += checkedString;
+                                    if (j <= 7) {
+                                        //queryString = "Type%20of%20Space";
+
+                                        String[] splitedagain = typeArr[i].split(",");
+                                        List<String> spliteList = Arrays.asList(splitedagain);
+                                        if (spliteList.contains(filterArray[j])) {
+                                            tmp.add(addressArr[i]);
+                                            hm.put(addressArr[i], hm.getOrDefault(addressArr[i], 0) + 1);
+                                        }
+                                    } else if (j <= 14) {
+//                        queryString = "Resources";
+                                        String[] splitedagain = resourcesArr[i].split(",");
+                                        List<String> spliteList = Arrays.asList(splitedagain);
+                                        if (spliteList.contains(filterArray[j])) {
+                                            tmp.add(addressArr[i]);
+                                            hm.put(addressArr[i], hm.getOrDefault(addressArr[i], 0) + 1);
+                                        }
+                                    } else {
+//                        queryString = "Noise%20Level";
+                                        String[] splitedagain = noiseArr[i].split(",");
+                                        List<String> spliteList = Arrays.asList(splitedagain);
+                                        if (spliteList.contains(filterArray[j])) {
+                                            tmp.add(addressArr[i]);
+                                            hm.put(addressArr[i], hm.getOrDefault(addressArr[i], 0) + 1);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        for (String a : tmp) {
+                            if (a != null && hm.get(a) == count - 1 && !(filtered.contains(a))) {
+                                filtered.add(a);
+                            }
+                        }
+                        for (String a : filtered) {
+                            finalDisplay += ("/n" + a);
+                        }
+                        System.out.println("xixi" + finalDisplay);
+                        Intent i= new Intent(getApplicationContext(), DisplayActivity.class);
+                        i.putExtra("key",finalDisplay);
+                        // for explicit intents
+                        // Intent i= new Intent(ActivityName.this,SecondActivity.class);
+                        // parameter 1 is the key
+                        // parameter 2 is the value
+                        // your value
+                        startActivity(i);
+
+
+                        //----------------------parse data after filtering--------//
+
+
+//            singleParsed = "Name" + JO.get("Name") + "\n"
+//                    + "Building" + JO.get("Building") + "\n"
+//                    + "Hours" + JO.get("Hours") + "\n"
+//                    + "Type of Space" + JO.get("Type of Space") + "\n"
+//                    + "Location" + JO.get("Location") + "\n"
+//                    + "Address" + JO.get("Address") + "\n"
+//                    + "Resources" + JO.get("Resources") + "\n"
+//                    + "Noise Level" + JO.get("Noise Level");
+//            dataParsed = dataParsed + singleParsed + "\n";
+
+//
+//                String[] singleVariable = new String[8];
+//                dataArray[i] = singleDataArray;
+//            }
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+
+//                    FetchDataforFilter process = new FetchDataforFilter();
+//                    process.execute();
 
                     Intent displayIntent = new Intent(getApplicationContext(), DisplayActivity.class);
                     startActivity(displayIntent);
+
                 }
             });
 
