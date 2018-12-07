@@ -5,15 +5,17 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Filter;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class DisplayActivity extends AppCompatActivity {
 
     public static TextView data;
-
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +23,18 @@ public class DisplayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_display);
 
         data = (TextView) findViewById(R.id.spaces);
-        data.setText(FilterActivity.finalDisplay);
+        String next = FetchDataforFilter.finalDisplay;
+        System.out.println("CS125" + next);
+        next = getResources().getString(R.string.spaces_result_displayed);
+        data.setText(next);
 
+
+
+
+//        data.setText("null");
+        data.setText(FilterActivity.finalDisplay);
+        System.out.println("cocococococo"+ FilterActivity.finalDisplay);
+//        FilterActivity.update(data);
 
         //direct to google maps button.
         Button directToGMaps = findViewById(R.id.directToGMaps);
@@ -46,4 +58,7 @@ public class DisplayActivity extends AppCompatActivity {
         });
     }
 
+//    public static void setData(TextView data) {
+//        data.setText(FilterActivity.finalDisplay);
+//    }
 }

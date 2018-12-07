@@ -28,6 +28,7 @@
 
     <TextView
         android:id="@+id/spaces"
+        android:text="@string/spaces_result_displayed"
         android:layout_width="293dp"
         android:layout_height="409dp"
         android:layout_marginStart="44dp"
@@ -35,7 +36,7 @@
         android:layout_marginEnd="44dp"
         android:layout_marginBottom="39dp"
         android:background="@color/colorWhite"
-        android:text="TextView"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
