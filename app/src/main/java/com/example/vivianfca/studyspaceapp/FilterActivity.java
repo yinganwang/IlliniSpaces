@@ -297,7 +297,7 @@ public class FilterActivity extends AppCompatActivity {
                                     info.add(addressArr[p]);
                                     info.add(resourcesArr[p]);
                                     info.add(noiseArr[p]);
-                                    info.add(",");
+                                    info.add("%");
                                 }
                             }
                             finalDisplay += r + "\n";
@@ -305,7 +305,7 @@ public class FilterActivity extends AppCompatActivity {
                         for (String r : info) {
                             infostr += r;
                         }
-                        String[] infostrSplited = infostr.split(",");
+                        String[] infostrSplited = infostr.split("%");
 
                         System.out.println("xixi" + finalDisplay);
                         Intent displayIntent = new Intent(FilterActivity.this, MapActivity.class);
