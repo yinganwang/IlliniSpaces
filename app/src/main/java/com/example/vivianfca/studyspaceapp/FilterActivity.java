@@ -294,7 +294,9 @@ public class FilterActivity extends AppCompatActivity {
                                     info.add(typeArr[p]);
                                     info.add(resourcesArr[p]);
                                     info.add(locArr[p]);
+                                    info.add("*");
                                     info.add(addressArr[p]);
+                                    info.add("*");
                                     info.add(resourcesArr[p]);
                                     info.add(noiseArr[p]);
                                     info.add("|");
@@ -306,7 +308,7 @@ public class FilterActivity extends AppCompatActivity {
                             infostr += r + "\n";
                         }
                         String[] infostrArray = infostr.split("\\|");
-                        ArrayList<String> infostrSplited = new ArrayList<String> (Arrays.asList(infostrArray));
+                        ArrayList<String> infostrSplited = new ArrayList<> (Arrays.asList(infostrArray));
 
                         System.out.println("xixi" + finalDisplay);
                         Intent displayIntent = new Intent(FilterActivity.this, MapActivity.class);

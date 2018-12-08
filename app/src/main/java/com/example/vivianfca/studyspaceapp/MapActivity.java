@@ -14,13 +14,14 @@ import android.util.Log;
 import android.widget.Toast;
 
 
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
+//import com.google.android.gms.location.FusedLocationProviderClient;
+//import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -54,7 +55,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
         // filtered info waiting to be displayed at map markers from filter Activity
 
-        ArrayList<String> infostrFiltered = getIntent().getStringArrayListExtra("info");
+        info = getIntent().getStringArrayListExtra("info");
 
 
 //        System.out.println("lllll" + infostrFiltered);
@@ -80,15 +81,41 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+//        String[] infoarr = (String[]) info.toArray();
+        String infostr = "";
 
+        for (String r : info) {
+            infostr += r + "\n";
+        }
+//        System.out.println(info + "ojojoj");
+        String[] infostrSplited = infostr.split("\\|");
+//        System.out.println(infostr + "0h0h0h");
+
+        List<Marker> displayMark = new ArrayList<>();
         // Add markers and move camera.
         for (int i = 0; i < lat.size(); i++) {
+            for (int j = 0; j < infostrSplited.length; j++) {
 
-            LatLng loc = new LatLng(lat.get(i), lng.get(i));
-            mMap.addMarker(new MarkerOptions().position(loc).title(addresses.get(i)).snippet(info.get(i)));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
+                LatLng loc = new LatLng(lat.get(i), lng.get(i));
 
+
+//                infostrrrrSplited = infostrrrr[j].split("\\|");
+
+                String[] tripleSplited = infostrSplited[j].split("\\*");
+                System.out.println(tripleSplited[1] + "hahaha");
+                System.out.println(infostrSplited[j] + "jijiji");
+
+
+                if (tripleSplited[1].equals(addresses.get(i))) {
+                    Marker mark = mMap.addMarker(new MarkerOptions().position(loc).title(addresses.get(i)).snippet(infostrSplited[j]));
+                    displayMark.add(mark);
+                    mark.showInfoWindow();
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
+                }
+
+            }
         }
+
 
     }
 
