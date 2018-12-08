@@ -289,14 +289,13 @@ public class FilterActivity extends AppCompatActivity {
                             for (int p = 0; p < JA.length(); p++) {
                                 if (addressArr[p].equals(r)) {
                                     info.add(nameArr[p]);
+                                    info.add("*");
                                     info.add(buildingArr[p]);
                                     info.add(hoursArr[p]);
                                     info.add(typeArr[p]);
                                     info.add(resourcesArr[p]);
                                     info.add(locArr[p]);
-                                    info.add("*");
                                     info.add(addressArr[p]);
-                                    info.add("*");
                                     info.add(resourcesArr[p]);
                                     info.add(noiseArr[p]);
                                     info.add("|");

@@ -102,16 +102,16 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 //                infostrrrrSplited = infostrrrr[j].split("\\|");
 
                 String[] tripleSplited = infostrSplited[j].split("\\*");
-                System.out.println(tripleSplited[1] + "hahaha");
-                System.out.println(infostrSplited[j] + "jijiji");
+//                System.out.println(tripleSplited[1] + "hahaha");
+//                System.out.println(infostrSplited[j] + "jijiji");
 
 
-                if (tripleSplited[1].equals(addresses.get(i))) {
-                    Marker mark = mMap.addMarker(new MarkerOptions().position(loc).title(addresses.get(i)).snippet(infostrSplited[j]));
-                    displayMark.add(mark);
-                    mark.showInfoWindow();
-                    mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
-                }
+
+                Marker mark = mMap.addMarker(new MarkerOptions().position(loc).title(tripleSplited[0]).snippet(infostrSplited[j]));
+                displayMark.add(mark);
+                mark.showInfoWindow();
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
+
 
             }
         }
