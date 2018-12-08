@@ -44,8 +44,10 @@ import java.util.concurrent.ExecutionException;
 
 public class FilterActivity extends AppCompatActivity {
     //public List<String> filteredForDisplay;
-    public CheckBox[] filterBoxes = new CheckBox[17];
+
     //public String toPass = "hooo";
+
+    CheckBox[] filterBoxes = new CheckBox[17];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +57,10 @@ public class FilterActivity extends AppCompatActivity {
 //        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
 //        progressBar.setMax(10);
 
+
         Button filterSearch = (Button) findViewById(R.id.filterSearch);
         filterSearch.setText("Search");
+
 
         CheckBox studyRoom = (CheckBox) findViewById(R.id.studyRoom);
         CheckBox studyArea = (CheckBox) findViewById(R.id.studyArea);
@@ -80,6 +84,25 @@ public class FilterActivity extends AppCompatActivity {
         CheckBox silent = (CheckBox) findViewById(R.id.silent);
         CheckBox notSilent = (CheckBox) findViewById(R.id.notSilent);
 
+
+        filterBoxes[0] = studyRoom;
+        filterBoxes[1] = studyArea;
+        filterBoxes[2] = computerLab;
+        filterBoxes[3] = studio;
+        filterBoxes[4] = classroom;
+        filterBoxes[5] = open;
+        filterBoxes[6] = lounge;
+        filterBoxes[7] = cafe;
+        filterBoxes[8] = whiteboard;
+        filterBoxes[9] = outlets;
+        filterBoxes[10] = computers;
+        filterBoxes[11] = scanning;
+        filterBoxes[12] = largeDisplay;
+        filterBoxes[13] = projector;
+        filterBoxes[14] = printing;
+        filterBoxes[15] = silent;
+        filterBoxes[16] = notSilent;
+
         String[] typeArr;
         String[] resourcesArr;
         String[] noiseArr;
@@ -102,23 +125,8 @@ public class FilterActivity extends AppCompatActivity {
 
 
 
-        filterBoxes[0] = studyRoom;
-        filterBoxes[1] = studyArea;
-        filterBoxes[2] = computerLab;
-        filterBoxes[3] = studio;
-        filterBoxes[4] = classroom;
-        filterBoxes[5] = open;
-        filterBoxes[6] = lounge;
-        filterBoxes[7] = cafe;
-        filterBoxes[8] = whiteboard;
-        filterBoxes[9] = outlets;
-        filterBoxes[10] = computers;
-        filterBoxes[11] = scanning;
-        filterBoxes[12] = largeDisplay;
-        filterBoxes[13] = projector;
-        filterBoxes[14] = printing;
-        filterBoxes[15] = silent;
-        filterBoxes[16] = notSilent;
+
+
 
         //If the filter activity is invoked
         if (getIntent().hasExtra("com.example.vivianfca.StudySpaceApp.something")) {
@@ -157,7 +165,8 @@ public class FilterActivity extends AppCompatActivity {
                     List<JSONObject> readytoReturn = new ArrayList<>();
                     List<String> tmp = new ArrayList<>();
                     HashMap<String, Integer> hm = new HashMap<>();
-                    int count = 0;
+
+
 
 
 //                    progressBar.setVisibility(View.INVISIBLE);
@@ -195,9 +204,37 @@ public class FilterActivity extends AppCompatActivity {
                         resourcesArr = new String[JA.length()];
                         noiseArr = new String[JA.length()];
 
+                        String[] filterArray = new String[17];
+
+                        filterArray[0] = "Study room";
+                        filterArray[1] = "Study area";
+                        filterArray[2] = "Computer lab";
+                        filterArray[3] = "Production studio";
+                        filterArray[4] = "Classroom";
+                        filterArray[5] = "Open space";
+                        filterArray[6] = "Lounge";
+                        filterArray[7] = "Cafe";
+                        filterArray[8] = "Whiteboards";
+                        filterArray[9] = "Outlets";
+                        filterArray[10] = "Computers";
+                        filterArray[11] = "Scanning";
+                        filterArray[12] = "Display";
+                        filterArray[13] = "Projector";
+                        filterArray[14] = "Printing";
+                        filterArray[15] = "quiet";
+                        filterArray[16] = "variable";
+
+                        int tmpcount = 0;
+
+
+
+                        //System.out.println("sssss" + JA.length());
                         for (int i = 0; i < JA.length(); i++) {
+                            int count = 0;
+
                             JSONObject JO = (JSONObject) JA.get(i);
-                            //System.out.println("bbbbb" + JO);
+                            tmpcount++;
+                            //System.out.println("bbbbb" + tmpcount + JO );
 
                             nameArr[i] = (String) JO.get("Name");
                             buildingArr[i] = (String) JO.get("Building");
@@ -208,32 +245,13 @@ public class FilterActivity extends AppCompatActivity {
                             resourcesArr[i] = (String) JO.get("Resources");
                             noiseArr[i] = (String) JO.get("Noise Level");
 
-                            String[] filterArray = new String[17];
-
-                            filterArray[0] = "Study room";
-                            filterArray[1] = "Study area";
-                            filterArray[2] = "Computer lab";
-                            filterArray[3] = "Studio";
-                            filterArray[4] = "Classroom";
-                            filterArray[5] = "Open space";
-                            filterArray[6] = "Lounge";
-                            filterArray[7] = "Cafe";
-                            filterArray[8] = "Whiteboards";
-                            filterArray[9] = "Outlets";
-                            filterArray[10] = "Computers";
-                            filterArray[11] = "Scanning";
-                            filterArray[12] = "Display";
-                            filterArray[13] = "Projector";
-                            filterArray[14] = "Printing";
-                            filterArray[15] = "quiet";
-                            filterArray[16] = "variable";
-
-
-                            for (int j = 0; j < filterBoxes.length; j++) {
+                            for (int j = 0; j < 17; j++) {
                                 if (filterBoxes[j].isChecked()) {
                                     count++;
                                     if (j <= 7) {
                                         String[] splitedagain = typeArr[i].split(",");
+
+//                                        System.out.println("bbbbb" + count + splitedagain.toString());
                                         List<String> spliteList = Arrays.asList(splitedagain);
                                         if (spliteList.contains(filterArray[j])) {
                                             tmp.add(addressArr[i]);
@@ -247,25 +265,26 @@ public class FilterActivity extends AppCompatActivity {
                                             hm.put(addressArr[i], hm.getOrDefault(addressArr[i], 0) + 1);
                                         }
                                     } else {
-                                        String[] splitedagain = noiseArr[i].split(",");
-                                        List<String> spliteList = Arrays.asList(splitedagain);
-                                        if (spliteList.contains(filterArray[j])) {
+                                        String splitedagain = noiseArr[i];
+                                        if (splitedagain.equals(filterArray[j])) {
                                             tmp.add(addressArr[i]);
                                             hm.put(addressArr[i], hm.getOrDefault(addressArr[i], 0) + 1);
                                         }
                                     }
+
+
+
                                 }
-                                for (String a : tmp) {
-                                    if (a != null && hm.get(a) == count && !(filtered.contains(a))) {
-                                        filtered.add(a);
-                                    }
+
+                            }
+                            for (String a : tmp) {
+                                if (a != null && hm.get(a) == count && !(filtered.contains(a))) {
+                                    filtered.add(a);
                                 }
-                                for (String a : filtered) {
-                                    finalDisplay += ("/n" + a);
-                                }
-                                System.out.println("xixi" + finalDisplay);
                             }
                         }
+                        finalDisplay = filtered.toString();
+                        System.out.println("xixi" + finalDisplay);
                         Intent displayIntent = new Intent(FilterActivity.this, DisplayActivity.class);
                         displayIntent.putExtra("key", finalDisplay);
                         // for explicit intents
