@@ -225,6 +225,8 @@ public class FilterActivity extends AppCompatActivity {
                         filterArray[16] = "variable";
 
                         int tmpcount = 0;
+                        List<String> info = new ArrayList<>();
+                        String infostr = "";
 
 
 
@@ -280,16 +282,35 @@ public class FilterActivity extends AppCompatActivity {
                             for (String a : tmp) {
                                 if (a != null && hm.get(a) == count && !(filtered.contains(a))) {
                                     filtered.add(a);
+                                    for (int p = 0; p < JA.length(); p++) {
+                                        if (addressArr[p].equals(a)) {
+                                            info.add(0, noiseArr[p]);
+                                            info.add(0, resourcesArr[p]);
+                                            info.add(0, addressArr[p]);
+                                            info.add(0, locArr[p]);
+                                            info.add(0, resourcesArr[p]);
+                                            info.add(0, typeArr[p]);
+                                            info.add(0, hoursArr[p]);
+                                            info.add(0, buildingArr[p]);
+                                            info.add(0, nameArr[p]);
+                                            info.add(",");
+                                        }
+                                    }
                                 }
                             }
                         }
                         for (String r : filtered) {
                             finalDisplay += r + "\n";
                         }
+                        for (String r : info) {
+                            infostr += r;
+                        }
+                        String[] infostrSplited = infostr.split(",");
 
                         System.out.println("xixi" + finalDisplay);
                         Intent displayIntent = new Intent(FilterActivity.this, MapActivity.class);
                         displayIntent.putStringArrayListExtra("key", filtered);
+                        displayIntent.putExtra("info", infostrSplited);
                         // for explicit intents
                         // Intent i= new Intent(ActivityName.this,SecondActivity.class);
                         // parameter 1 is the key
