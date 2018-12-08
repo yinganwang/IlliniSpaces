@@ -27,9 +27,9 @@ public class DisplayActivity extends AppCompatActivity {
         //Bundle extras = getIntent().getExtras();
 
 
-        String value = getIntent().getStringExtra("key");
-        //get the value based on the key
-        data.setText(value);
+//        String value = getIntent().getStringExtra("key");
+//        //get the value based on the key
+//        data.setText(value);
 
 //        String next = FilterActivity.finalDisplay;
 //
@@ -54,6 +54,8 @@ public class DisplayActivity extends AppCompatActivity {
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, navigationIntentUri);
                 mapIntent.setPackage("com.google.android.apps.maps");
                 startActivity(mapIntent);
+
+
                 //message to display if maps isn't installed.
                 try
                 {

@@ -26,22 +26,36 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
-    <TextView
-        android:id="@+id/spaces"
-        android:text="@string/spaces_result_displayed"
+    <ScrollView
         android:layout_width="293dp"
         android:layout_height="409dp"
-        android:layout_marginStart="44dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="39dp"
-        android:background="@color/colorWhite"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.244" />
+        app:layout_constraintVertical_bias="0.188">
+
+        <TextView
+            android:id="@+id/spaces"
+            android:layout_width="293dp"
+            android:layout_height="409dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="44dp"
+            android:layout_marginBottom="39dp"
+            android:background="@color/colorWhite"
+            android:text="@string/spaces_result_displayed"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.244" />
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>

@@ -160,8 +160,8 @@ public class FilterActivity extends AppCompatActivity {
                     String[] locArr;
                     String[] addressArr;
 
-                    String finalDisplay = "hahahah";
-                    List<String> filtered = new ArrayList<>();
+                    String finalDisplay = "";
+                    ArrayList<String> filtered = new ArrayList<>();
                     List<JSONObject> readytoReturn = new ArrayList<>();
                     List<String> tmp = new ArrayList<>();
                     HashMap<String, Integer> hm = new HashMap<>();
@@ -283,10 +283,13 @@ public class FilterActivity extends AppCompatActivity {
                                 }
                             }
                         }
-                        finalDisplay = filtered.toString();
+                        for (String r : filtered) {
+                            finalDisplay += r + "\n";
+                        }
+
                         System.out.println("xixi" + finalDisplay);
-                        Intent displayIntent = new Intent(FilterActivity.this, DisplayActivity.class);
-                        displayIntent.putExtra("key", finalDisplay);
+                        Intent displayIntent = new Intent(FilterActivity.this, MapActivity.class);
+                        displayIntent.putStringArrayListExtra("key", filtered);
                         // for explicit intents
                         // Intent i= new Intent(ActivityName.this,SecondActivity.class);
                         // parameter 1 is the key
