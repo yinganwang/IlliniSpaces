@@ -33,9 +33,10 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
 
     private GoogleMap mMap;
-    List<Double> lat = new ArrayList<Double>();
-    List<Double> lng = new ArrayList<Double>();
-    List<String> addresses = new ArrayList<String>();
+    List<Double> lat = new ArrayList<>();
+    List<Double> lng = new ArrayList<>();
+    ArrayList<String> info = new ArrayList<>();
+    ArrayList<String> addresses = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,10 +51,13 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         // filtered addresses from filter Activity
         ArrayList<String> value = getIntent().getStringArrayListExtra("key");
         addresses = value;
-        System.out.println("jjjjj" + addresses);
+
         // filtered info waiting to be displayed at map markers from filter Activity
-        String[] infostrFiltered = getIntent().getStringArrayExtra("info");
-        System.out.println("lllll" + infostrFiltered);
+
+        ArrayList<String> infostrFiltered = getIntent().getStringArrayListExtra("info");
+
+
+//        System.out.println("lllll" + infostrFiltered);
 
         for (int i = 0; i < value.size(); i++) {
             Geocoder gc = new Geocoder(this);
@@ -81,7 +85,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         for (int i = 0; i < lat.size(); i++) {
 
             LatLng loc = new LatLng(lat.get(i), lng.get(i));
-            mMap.addMarker(new MarkerOptions().position(loc).title(addresses.get(i)));
+            mMap.addMarker(new MarkerOptions().position(loc).title(addresses.get(i)).snippet(info.get(i)));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
 
         }

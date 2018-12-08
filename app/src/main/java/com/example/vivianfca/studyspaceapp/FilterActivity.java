@@ -305,12 +305,13 @@ public class FilterActivity extends AppCompatActivity {
                         for (String r : info) {
                             infostr += r + "\n";
                         }
-                        String[] infostrSplited = infostr.split("\\|");
+                        String[] infostrArray = infostr.split("\\|");
+                        ArrayList<String> infostrSplited = new ArrayList<String> (Arrays.asList(infostrArray));
 
                         System.out.println("xixi" + finalDisplay);
                         Intent displayIntent = new Intent(FilterActivity.this, MapActivity.class);
                         displayIntent.putStringArrayListExtra("key", filtered);
-                        displayIntent.putExtra("info", infostrSplited);
+                        displayIntent.putStringArrayListExtra("info", infostrSplited);
                         // for explicit intents
                         // Intent i= new Intent(ActivityName.this,SecondActivity.class);
                         // parameter 1 is the key
