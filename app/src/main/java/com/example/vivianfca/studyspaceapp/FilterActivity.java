@@ -282,24 +282,24 @@ public class FilterActivity extends AppCompatActivity {
                             for (String a : tmp) {
                                 if (a != null && hm.get(a) == count && !(filtered.contains(a))) {
                                     filtered.add(a);
-                                    for (int p = 0; p < JA.length(); p++) {
-                                        if (addressArr[p].equals(a)) {
-                                            info.add(0, noiseArr[p]);
-                                            info.add(0, resourcesArr[p]);
-                                            info.add(0, addressArr[p]);
-                                            info.add(0, locArr[p]);
-                                            info.add(0, resourcesArr[p]);
-                                            info.add(0, typeArr[p]);
-                                            info.add(0, hoursArr[p]);
-                                            info.add(0, buildingArr[p]);
-                                            info.add(0, nameArr[p]);
-                                            info.add(",");
-                                        }
-                                    }
                                 }
                             }
                         }
                         for (String r : filtered) {
+                            for (int p = 0; p < JA.length(); p++) {
+                                if (addressArr[p].equals(r)) {
+                                    info.add(nameArr[p]);
+                                    info.add(buildingArr[p]);
+                                    info.add(hoursArr[p]);
+                                    info.add(typeArr[p]);
+                                    info.add(resourcesArr[p]);
+                                    info.add(locArr[p]);
+                                    info.add(addressArr[p]);
+                                    info.add(resourcesArr[p]);
+                                    info.add(noiseArr[p]);
+                                    info.add(",");
+                                }
+                            }
                             finalDisplay += r + "\n";
                         }
                         for (String r : info) {
