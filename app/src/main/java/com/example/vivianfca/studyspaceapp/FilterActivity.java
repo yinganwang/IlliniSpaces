@@ -297,15 +297,15 @@ public class FilterActivity extends AppCompatActivity {
                                     info.add(addressArr[p]);
                                     info.add(resourcesArr[p]);
                                     info.add(noiseArr[p]);
-                                    info.add("%");
+                                    info.add("|");
                                 }
                             }
                             finalDisplay += r + "\n";
                         }
                         for (String r : info) {
-                            infostr += r;
+                            infostr += r + "\n";
                         }
-                        String[] infostrSplited = infostr.split("%");
+                        String[] infostrSplited = infostr.split("\\|");
 
                         System.out.println("xixi" + finalDisplay);
                         Intent displayIntent = new Intent(FilterActivity.this, MapActivity.class);
