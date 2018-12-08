@@ -3,6 +3,7 @@ package com.example.vivianfca.studyspaceapp;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,16 +21,16 @@ public class DisplayActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
+        //startForeground(100, new NotificationCompat.Builder(this).build());
 
         TextView data = (TextView) findViewById(R.id.spaces);
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            String value = extras.getString("key");
-            //get the value based on the key
-            data.setText(value);
-        } else {
-            data.setText("xixi");
-        }
+        //Bundle extras = getIntent().getExtras();
+
+
+        String value = getIntent().getStringExtra("key");
+        //get the value based on the key
+        data.setText(value);
+
 //        String next = FilterActivity.finalDisplay;
 //
 //        //System.out.println("CS125" + next);
