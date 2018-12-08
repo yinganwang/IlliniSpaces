@@ -1,7 +1,6 @@
 package com.example.vivianfca.studyspaceapp;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -12,7 +11,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -21,8 +19,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GoogleApiAvailability;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -51,11 +47,7 @@ public class FilterActivity extends AppCompatActivity {
 
     //public String toPass = "hooo";
 
-
-    private static final int ERROR_DIALOG_REQUEST = 9001;
-
     CheckBox[] filterBoxes = new CheckBox[17];
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -144,35 +136,37 @@ public class FilterActivity extends AppCompatActivity {
 //            startActivity(displayIntent);
 
 
-                //set onclick listener of the search button
-                View.OnClickListener listener = new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+            //set onclick listener of the search button
+            View.OnClickListener listener = new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
 
-                        //--------------------Checkbox filtering---------------------------------//
+                    //--------------------Checkbox filtering---------------------------------//
 
 
-                        String allData = "happy";
+                    String allData = "happy";
 
-                        List<JSONObject> toReturn = new ArrayList<>();
-                        JSONArray JA;
+                    List<JSONObject> toReturn = new ArrayList<>();
+                    JSONArray JA;
 
-                        String[] typeArr;
-                        String[] resourcesArr;
-                        String[] noiseArr;
+                    String[] typeArr;
+                    String[] resourcesArr;
+                    String[] noiseArr;
 
-                        String[] nameArr;
-                        String[] buildingArr;
-                        String[] hoursArr;
-                        String[] locArr;
-                        String[] addressArr;
+                    String[] nameArr;
+                    String[] buildingArr;
+                    String[] hoursArr;
+                    String[] locArr;
+                    String[] addressArr;
 
-                        String finalDisplay = "";
-                        ArrayList<String> filtered = new ArrayList<>();
-                        List<JSONObject> readytoReturn = new ArrayList<>();
-                        List<String> tmp = new ArrayList<>();
-                        HashMap<String, Integer> hm = new HashMap<>();
+                    String finalDisplay = "";
+                    ArrayList<String> filtered = new ArrayList<>();
+                    List<JSONObject> readytoReturn = new ArrayList<>();
+                    List<String> tmp = new ArrayList<>();
+                    HashMap<String, Integer> hm = new HashMap<>();
+
+
 
 
 //                    progressBar.setVisibility(View.INVISIBLE);
@@ -188,128 +182,150 @@ public class FilterActivity extends AppCompatActivity {
 //                            }
 //                            break;
 //                    }
-                        try {
-                            allData = new FetchDataforFilter().execute().get();
-                            System.out.println("uuuuu" + allData);
-                        } catch (ExecutionException e) {
-                            e.printStackTrace();
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
+                    try {
+                        allData = new FetchDataforFilter().execute().get();
+                        System.out.println("uuuuu" + allData);
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
 
 
-                        //--------------------filtering data-----------------//
-                        try {
-                            JA = new JSONArray(allData);
-                            nameArr = new String[JA.length()];
-                            buildingArr = new String[JA.length()];
-                            hoursArr = new String[JA.length()];
-                            typeArr = new String[JA.length()];
-                            locArr = new String[JA.length()];
-                            addressArr = new String[JA.length()];
-                            resourcesArr = new String[JA.length()];
-                            noiseArr = new String[JA.length()];
+                    //--------------------filtering data-----------------//
+                    try {
+                        JA = new JSONArray(allData);
+                        nameArr = new String[JA.length()];
+                        buildingArr = new String[JA.length()];
+                        hoursArr = new String[JA.length()];
+                        typeArr = new String[JA.length()];
+                        locArr = new String[JA.length()];
+                        addressArr = new String[JA.length()];
+                        resourcesArr = new String[JA.length()];
+                        noiseArr = new String[JA.length()];
 
-                            String[] filterArray = new String[17];
+                        String[] filterArray = new String[17];
 
-                            filterArray[0] = "Study room";
-                            filterArray[1] = "Study area";
-                            filterArray[2] = "Computer lab";
-                            filterArray[3] = "Production studio";
-                            filterArray[4] = "Classroom";
-                            filterArray[5] = "Open space";
-                            filterArray[6] = "Lounge";
-                            filterArray[7] = "Cafe";
-                            filterArray[8] = "Whiteboards";
-                            filterArray[9] = "Outlets";
-                            filterArray[10] = "Computers";
-                            filterArray[11] = "Scanning";
-                            filterArray[12] = "Display";
-                            filterArray[13] = "Projector";
-                            filterArray[14] = "Printing";
-                            filterArray[15] = "quiet";
-                            filterArray[16] = "variable";
+                        filterArray[0] = "Study room";
+                        filterArray[1] = "Study area";
+                        filterArray[2] = "Computer lab";
+                        filterArray[3] = "Production studio";
+                        filterArray[4] = "Classroom";
+                        filterArray[5] = "Open space";
+                        filterArray[6] = "Lounge";
+                        filterArray[7] = "Cafe";
+                        filterArray[8] = "Whiteboards";
+                        filterArray[9] = "Outlets";
+                        filterArray[10] = "Computers";
+                        filterArray[11] = "Scanning";
+                        filterArray[12] = "Display";
+                        filterArray[13] = "Projector";
+                        filterArray[14] = "Printing";
+                        filterArray[15] = "quiet";
+                        filterArray[16] = "variable";
 
-                            int tmpcount = 0;
+                        int tmpcount = 0;
+                        List<String> info = new ArrayList<>();
+                        String infostr = "";
 
 
-                            //System.out.println("sssss" + JA.length());
-                            for (int i = 0; i < JA.length(); i++) {
-                                int count = 0;
 
-                                JSONObject JO = (JSONObject) JA.get(i);
-                                tmpcount++;
-                                //System.out.println("bbbbb" + tmpcount + JO );
+                        //System.out.println("sssss" + JA.length());
+                        for (int i = 0; i < JA.length(); i++) {
+                            int count = 0;
 
-                                nameArr[i] = (String) JO.get("Name");
-                                buildingArr[i] = (String) JO.get("Building");
-                                hoursArr[i] = (String) JO.get("Hours");
-                                typeArr[i] = (String) JO.get("Type of Space");
-                                locArr[i] = (String) JO.get("Location");
-                                addressArr[i] = (String) JO.get("Address");
-                                resourcesArr[i] = (String) JO.get("Resources");
-                                noiseArr[i] = (String) JO.get("Noise Level");
+                            JSONObject JO = (JSONObject) JA.get(i);
+                            tmpcount++;
+                            //System.out.println("bbbbb" + tmpcount + JO );
 
-                                for (int j = 0; j < 17; j++) {
-                                    if (filterBoxes[j].isChecked()) {
-                                        count++;
-                                        if (j <= 7) {
-                                            String[] splitedagain = typeArr[i].split(",");
+                            nameArr[i] = (String) JO.get("Name");
+                            buildingArr[i] = (String) JO.get("Building");
+                            hoursArr[i] = (String) JO.get("Hours");
+                            typeArr[i] = (String) JO.get("Type of Space");
+                            locArr[i] = (String) JO.get("Location");
+                            addressArr[i] = (String) JO.get("Address");
+                            resourcesArr[i] = (String) JO.get("Resources");
+                            noiseArr[i] = (String) JO.get("Noise Level");
+
+                            for (int j = 0; j < 17; j++) {
+                                if (filterBoxes[j].isChecked()) {
+                                    count++;
+                                    if (j <= 7) {
+                                        String[] splitedagain = typeArr[i].split(",");
 
 //                                        System.out.println("bbbbb" + count + splitedagain.toString());
-                                            List<String> spliteList = Arrays.asList(splitedagain);
-                                            if (spliteList.contains(filterArray[j])) {
-                                                tmp.add(addressArr[i]);
-                                                hm.put(addressArr[i], hm.getOrDefault(addressArr[i], 0) + 1);
-                                            }
-                                        } else if (j <= 14) {
-                                            String[] splitedagain = resourcesArr[i].split(",");
-                                            List<String> spliteList = Arrays.asList(splitedagain);
-                                            if (spliteList.contains(filterArray[j])) {
-                                                tmp.add(addressArr[i]);
-                                                hm.put(addressArr[i], hm.getOrDefault(addressArr[i], 0) + 1);
-                                            }
-                                        } else {
-                                            String splitedagain = noiseArr[i];
-                                            if (splitedagain.equals(filterArray[j])) {
-                                                tmp.add(addressArr[i]);
-                                                hm.put(addressArr[i], hm.getOrDefault(addressArr[i], 0) + 1);
-                                            }
+                                        List<String> spliteList = Arrays.asList(splitedagain);
+                                        if (spliteList.contains(filterArray[j])) {
+                                            tmp.add(addressArr[i]);
+                                            hm.put(addressArr[i], hm.getOrDefault(addressArr[i], 0) + 1);
                                         }
-
-
+                                    } else if (j <= 14) {
+                                        String[] splitedagain = resourcesArr[i].split(",");
+                                        List<String> spliteList = Arrays.asList(splitedagain);
+                                        if (spliteList.contains(filterArray[j])) {
+                                            tmp.add(addressArr[i]);
+                                            hm.put(addressArr[i], hm.getOrDefault(addressArr[i], 0) + 1);
+                                        }
+                                    } else {
+                                        String splitedagain = noiseArr[i];
+                                        if (splitedagain.equals(filterArray[j])) {
+                                            tmp.add(addressArr[i]);
+                                            hm.put(addressArr[i], hm.getOrDefault(addressArr[i], 0) + 1);
+                                        }
                                     }
 
-                                }
-                                for (String a : tmp) {
-                                    if (a != null && hm.get(a) == count && !(filtered.contains(a))) {
-                                        filtered.add(a);
-                                    }
-                                }
-                            }
-                            for (String r : filtered) {
-                                finalDisplay += r + "\n";
-                            }
 
-                            System.out.println("xixi" + finalDisplay);
-                            Intent displayIntent = new Intent(FilterActivity.this, MapActivity.class);
-                            displayIntent.putStringArrayListExtra("key", filtered);
-                            // for explicit intents
-                            // Intent i= new Intent(ActivityName.this,SecondActivity.class);
-                            // parameter 1 is the key
-                            // parameter 2 is the value
-                            // your value
-                            startActivity(displayIntent);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+
+                                }
+
+                            }
+                            for (String a : tmp) {
+                                if (a != null && hm.get(a) == count && !(filtered.contains(a))) {
+                                    filtered.add(a);
+                                }
+                            }
                         }
+                        for (String r : filtered) {
+                            for (int p = 0; p < JA.length(); p++) {
+                                if (addressArr[p].equals(r)) {
+                                    info.add(nameArr[p]);
+                                    info.add(buildingArr[p]);
+                                    info.add(hoursArr[p]);
+                                    info.add(typeArr[p]);
+                                    info.add(resourcesArr[p]);
+                                    info.add(locArr[p]);
+                                    info.add(addressArr[p]);
+                                    info.add(resourcesArr[p]);
+                                    info.add(noiseArr[p]);
+                                    info.add(",");
+                                }
+                            }
+                            finalDisplay += r + "\n";
+                        }
+                        for (String r : info) {
+                            infostr += r;
+                        }
+                        String[] infostrSplited = infostr.split(",");
 
-
+                        System.out.println("xixi" + finalDisplay);
+                        Intent displayIntent = new Intent(FilterActivity.this, MapActivity.class);
+                        displayIntent.putStringArrayListExtra("key", filtered);
+                        displayIntent.putExtra("info", infostrSplited);
+                        // for explicit intents
+                        // Intent i= new Intent(ActivityName.this,SecondActivity.class);
+                        // parameter 1 is the key
+                        // parameter 2 is the value
+                        // your value
+                        startActivity(displayIntent);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                };
 
-                filterSearch.setOnClickListener(listener);
 
+                }
+            };
+
+            filterSearch.setOnClickListener(listener);
 
 
         }
@@ -318,7 +334,6 @@ public class FilterActivity extends AppCompatActivity {
 //        Intent test = new Intent(FilterActivity.this, DisplayActivity.class);
 //        startForegroundService(test);
     }
-
 }
 
 

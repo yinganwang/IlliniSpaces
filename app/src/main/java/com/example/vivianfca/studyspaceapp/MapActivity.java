@@ -50,6 +50,11 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         // filtered addresses from filter Activity
         ArrayList<String> value = getIntent().getStringArrayListExtra("key");
         addresses = value;
+        System.out.println("jjjjj" + addresses);
+        // filtered info waiting to be displayed at map markers from filter Activity
+        String[] infostrFiltered = getIntent().getStringArrayExtra("info");
+        System.out.println("lllll" + infostrFiltered);
+
         for (int i = 0; i < value.size(); i++) {
             Geocoder gc = new Geocoder(this);
             try {
