@@ -12,7 +12,7 @@
         android:layout_width="226dp"
         android:layout_height="60dp"
         android:layout_marginTop="60dp"
-        android:layout_marginRight="68dp"
+        android:layout_marginRight="56dp"
         android:text="SPACES"
         android:textAlignment="center"
         android:textColor="@android:color/white"
