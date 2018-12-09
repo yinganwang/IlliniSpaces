@@ -95,8 +95,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             mMap.setMyLocationEnabled(true);
         }
 //
-        LatLng one = new LatLng(41, -87);
-        LatLng two = new LatLng(40, -89);
+        LatLng one = new LatLng(40.08, -88.21);
+        LatLng two = new LatLng(40.12, -88.25);
 
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
 
