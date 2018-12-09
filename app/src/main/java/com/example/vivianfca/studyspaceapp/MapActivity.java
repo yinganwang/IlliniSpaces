@@ -90,39 +90,44 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         Marker mark = null;
 
 
-//        //current loc code
-//        if (!(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)) {
-//            mMap.setMyLocationEnabled(true);
-//        }
-////
-//        LatLng one = new LatLng(30, -87);
-//        LatLng two = new LatLng(50, -89);
+        //current loc code
+        if (!(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)) {
+            mMap.setMyLocationEnabled(true);
+        }
 //
-//        LatLngBounds.Builder builder = new LatLngBounds.Builder();
-//
-//        //add them to builder
-//        builder.include(one);
-//        builder.include(two);
-//
-//        LatLngBounds bounds = builder.build();
-//
-//        //get width and height to current display screen
-//        int width = getResources().getDisplayMetrics().widthPixels;
-//        int height = getResources().getDisplayMetrics().heightPixels;
-//
-//        // 20% padding
-//        int padding = (int) (width * 0.20);
-//
-//        //set latlong bounds
-//        mMap.setLatLngBoundsForCameraTarget(bounds);
-//
-//        //move camera to fill the bound to screen
-//        mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, width, height, padding));
-//
-//        //set zoom to level to current so that you won't be able to zoom out viz. move outside bounds
-//        mMap.setMinZoomPreference(mMap.getCameraPosition().zoom);
+        LatLng one = new LatLng(30, -87);
+        LatLng two = new LatLng(50, -89);
 
-//        String[] infoarr = (String[]) info.toArray();
+        LatLngBounds.Builder builder = new LatLngBounds.Builder();
+
+        //add them to builder
+        builder.include(one);
+        builder.include(two);
+
+        LatLngBounds bounds = builder.build();
+
+        //get width and height to current display screen
+        int width = getResources().getDisplayMetrics().widthPixels;
+        int height = getResources().getDisplayMetrics().heightPixels;
+
+        // 20% padding
+        int padding = (int) (width * 0.20);
+
+        //set latlong bounds
+        mMap.setLatLngBoundsForCameraTarget(bounds);
+
+        //move camera to fill the bound to screen
+        mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, width, height, padding));
+
+        //set zoom to level to current so that you won't be able to zoom out viz. move outside bounds
+        mMap.setMinZoomPreference(mMap.getCameraPosition().zoom);
+
+        String[] infoarr = (String[]) info.toArray();
+
+
+
+
+
         String infostr = "";
 
         for (String r : info) {
