@@ -286,6 +286,7 @@ public class FilterActivity extends AppCompatActivity {
                             for (int p = 0; p < JA.length(); p++) {
                                 if (addressArr[p].equals(r)) {
                                     info.add(nameArr[p]);
+                                    info.add("*");
                                     info.add(buildingArr[p]);
                                     info.add(hoursArr[p]);
                                     info.add(typeArr[p]);
@@ -303,7 +304,7 @@ public class FilterActivity extends AppCompatActivity {
                             infostr += r + "\n";
                         }
                         String[] infostrArray = infostr.split("\\|");
-                        ArrayList<String> infostrSplited = new ArrayList<String> (Arrays.asList(infostrArray));
+                        ArrayList<String> infostrSplited = new ArrayList<> (Arrays.asList(infostrArray));
 
                         System.out.println("xixi" + finalDisplay);
                         Intent displayIntent = new Intent(FilterActivity.this, MapActivity.class);
