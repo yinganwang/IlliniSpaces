@@ -138,10 +138,10 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             }
         }
         mark.showInfoWindow();
-        Intent markIntent = new Intent(MapActivity.this, MarkInfoWindow.class);
-        markIntent.putStringArrayListExtra("snippetInfo", displaySnippet);
-        markIntent.putStringArrayListExtra("snippetTitle", displayTitle);
-
+//        Intent markIntent = new Intent(MapActivity.this, MarkInfoWindow.class);
+//        markIntent.putStringArrayListExtra("snippetInfo", displaySnippet);
+//        markIntent.putStringArrayListExtra("snippetTitle", displayTitle);
+//
 
 
     }

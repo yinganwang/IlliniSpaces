@@ -15,7 +15,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class MarkInfoWindow extends AppComponentFactory implements GoogleMap.InfoWindowAdapter {
+public class MarkInfoWindow implements GoogleMap.InfoWindowAdapter {
     private HashMap<Marker, String> MarkersInfo;
     private View mWindow;
     private Context mContext;
