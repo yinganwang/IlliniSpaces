@@ -111,7 +111,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         int height = getResources().getDisplayMetrics().heightPixels;
 
         // 20% padding
-        int padding = (int) (width * 0.20);
+        int padding = (int) (width * 0.001);
 
         //set latlong bounds
         mMap.setLatLngBoundsForCameraTarget(bounds);
