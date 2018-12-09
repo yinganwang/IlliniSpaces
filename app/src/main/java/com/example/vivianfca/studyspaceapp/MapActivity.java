@@ -11,7 +11,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
 
@@ -92,7 +91,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         String[] infostrSplited = infostr.split("\\|");
 //        System.out.println(infostr + "0h0h0h");
 
-//        List<Marker> displayMark = new ArrayList<>();
+        List<Marker> displayMark = new ArrayList<>();
         // Add markers and move camera.
         for (int i = 0; i < lat.size(); i++) {
             for (int j = 0; j < infostrSplited.length; j++) {
@@ -108,8 +107,9 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
 
 
-                mMap.addMarker(new MarkerOptions().position(loc).title(tripleSplited[0]).snippet(infostrSplited[j]));
-
+                Marker mark = mMap.addMarker(new MarkerOptions().position(loc).title(tripleSplited[0]).snippet(infostrSplited[j]));
+                displayMark.add(mark);
+                mark.showInfoWindow();
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
 
 
