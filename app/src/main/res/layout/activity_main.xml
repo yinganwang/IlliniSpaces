@@ -44,7 +44,7 @@
         android:layout_width="304dp"
         android:layout_height="94dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="196dp"
         android:fontFamily="monospace"
         android:lineSpacingExtra="8sp"
         android:text="Search the UIUC campus for study spaces and resources near you!"
@@ -54,7 +54,7 @@
         android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

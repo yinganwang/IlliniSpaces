@@ -13,6 +13,9 @@ import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.GoogleMap.OnMyLocationButtonClickListener;
+import com.google.android.gms.maps.GoogleMap.OnMyLocationClickListener;
+
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -21,6 +24,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -30,6 +34,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
+
+    /**
+     * Request code for location permission request.
+     */
+    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
+
+    /**
+     * Flag indicating whether a requested permission has been denied
+     */
+    private boolean mPermissionDenied = false;
 
 
     private GoogleMap mMap;
@@ -45,7 +59,6 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
 
 
         // filtered addresses from filter Activity
@@ -86,12 +99,13 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
             LatLng loc = new LatLng(lat.get(i), lng.get(i));
             mMap.addMarker(new MarkerOptions().position(loc).title(addresses.get(i)).snippet(info.get(i)));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
 
         }
 
     }
 
-    //<-------------------------------------------new current location code------------------------------------------------------>
+
+    //<-------------------------------------------current location code------------------------------------------------------>
+
 
 }
