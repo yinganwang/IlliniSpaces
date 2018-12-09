@@ -1,6 +1,7 @@
 package com.example.vivianfca.studyspaceapp;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -20,14 +21,19 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+import org.json.JSONObject;
+
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -80,6 +86,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        Marker mark = null;
 
 //        String[] infoarr = (String[]) info.toArray();
         String infostr = "";
@@ -91,7 +98,13 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         String[] infostrSplited = infostr.split("\\|");
 //        System.out.println(infostr + "0h0h0h");
 
-        List<Marker> displayMark = new ArrayList<>();
+        ArrayList<String> displaySnippet = new ArrayList<>();
+        ArrayList<String> displayTitle = new ArrayList<>();
+        HashMap<Marker, String> MarkersInfo = new HashMap<>();
+
+        mMap.setInfoWindowAdapter(new MarkInfoWindow(MapActivity.this));
+
+
         // Add markers and move camera.
         for (int i = 0; i < lat.size(); i++) {
             for (int j = 0; j < infostrSplited.length; j++) {
@@ -107,14 +120,28 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
 
 
-                Marker mark = mMap.addMarker(new MarkerOptions().position(loc).title(tripleSplited[0]).snippet(infostrSplited[j]));
-                displayMark.add(mark);
-                mark.showInfoWindow();
+                mark = mMap.addMarker(new MarkerOptions().position(loc).title(tripleSplited[0]).snippet(infostrSplited[j]));
+                System.out.println(infostrSplited[j] + "jijijiji");
+                displaySnippet.add(infostrSplited[j]);
+                displayTitle.add(tripleSplited[0]);
+//                mark.showInfoWindow();
+
+
+
+
+
+
+
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
 
 
             }
         }
+        mark.showInfoWindow();
+        Intent markIntent = new Intent(MapActivity.this, MarkInfoWindow.class);
+        markIntent.putStringArrayListExtra("snippetInfo", displaySnippet);
+        markIntent.putStringArrayListExtra("snippetTitle", displayTitle);
+
 
 
     }
