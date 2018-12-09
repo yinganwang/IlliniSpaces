@@ -162,7 +162,8 @@ public class FilterActivity extends AppCompatActivity {
 
                     String finalDisplay = "";
                     ArrayList<String> filtered = new ArrayList<>();
-                    List<JSONObject> readytoReturn = new ArrayList<>();
+                    //ArrayList<JSONObject> readytoReturn = new ArrayList<>();
+                    JSONObject JO;
 
 
 
@@ -235,7 +236,8 @@ public class FilterActivity extends AppCompatActivity {
                             List<String> tmp = new ArrayList<>();
                             HashMap<String, Integer> hm = new HashMap<>();
 
-                            JSONObject JO = (JSONObject) JA.get(i);
+                            JO = (JSONObject) JA.get(i);
+                            //readytoReturn.add(JO);
                             tmpcount++;
                             //System.out.println("bbbbb" + tmpcount + JO );
 
@@ -310,6 +312,8 @@ public class FilterActivity extends AppCompatActivity {
                         Intent displayIntent = new Intent(FilterActivity.this, MapActivity.class);
                         displayIntent.putStringArrayListExtra("key", filtered);
                         displayIntent.putStringArrayListExtra("info", infostrSplited);
+                        //displayIntent.putArrayListExtra("JOinfo", readytoReturn);
+
                         // for explicit intents
                         // Intent i= new Intent(ActivityName.this,SecondActivity.class);
                         // parameter 1 is the key
