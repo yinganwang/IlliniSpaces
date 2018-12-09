@@ -85,7 +85,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         for (int i = 0; i < lat.size(); i++) {
 
             LatLng loc = new LatLng(lat.get(i), lng.get(i));
-            mMap.addMarker(new MarkerOptions().position(loc).title(addresses.get(i)).snippet(info.get(i)));
+            mMap.addMarker(new MarkerOptions().position(loc).title(addresses.get(i)));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
 
         }

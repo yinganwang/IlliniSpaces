@@ -163,8 +163,6 @@ public class FilterActivity extends AppCompatActivity {
                     String finalDisplay = "";
                     ArrayList<String> filtered = new ArrayList<>();
                     List<JSONObject> readytoReturn = new ArrayList<>();
-                    List<String> tmp = new ArrayList<>();
-                    HashMap<String, Integer> hm = new HashMap<>();
 
 
 
@@ -234,6 +232,9 @@ public class FilterActivity extends AppCompatActivity {
                         for (int i = 0; i < JA.length(); i++) {
                             int count = 0;
 
+                            List<String> tmp = new ArrayList<>();
+                            HashMap<String, Integer> hm = new HashMap<>();
+
                             JSONObject JO = (JSONObject) JA.get(i);
                             tmpcount++;
                             //System.out.println("bbbbb" + tmpcount + JO );
@@ -273,18 +274,14 @@ public class FilterActivity extends AppCompatActivity {
                                             hm.put(addressArr[i], hm.getOrDefault(addressArr[i], 0) + 1);
                                         }
                                     }
-
-
-
-                                }
-
-                            }
+                                }//end of if checked
+                            }//end of j loop
                             for (String a : tmp) {
                                 if (a != null && hm.get(a) == count && !(filtered.contains(a))) {
                                     filtered.add(a);
                                 }
                             }
-                        }
+                        }//end of i loop
                         for (String r : filtered) {
                             for (int p = 0; p < JA.length(); p++) {
                                 if (addressArr[p].equals(r)) {
