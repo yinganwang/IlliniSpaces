@@ -66,20 +66,6 @@ public class MapActivity extends FragmentActivity implements GoogleMap.OnMyLocat
         // filtered info waiting to be displayed at map markers from filter Activity
 
         info = getIntent().getStringArrayListExtra("info");
-//        String addInfo = getIntent().getStringExtra("Addinfo");
-
-//        //String[][] huge = new String[96][8];
-//        String[] addSplited = addInfo.split("\\r?\\n");
-//        for (String add : addSplited) {
-//            if ()
-//        }
-
-
-
-
-
-
-//        System.out.println("lllll" + infostrFiltered);
 
         for (int i = 0; i < value.size(); i++) {
             Geocoder gc = new Geocoder(this);
@@ -113,7 +99,7 @@ public class MapActivity extends FragmentActivity implements GoogleMap.OnMyLocat
             LatLng loc = new LatLng(lat.get(i), lng.get(i));
 
             String[] splited = info.get(i).split("~");
-            
+
 
             mark = mMap.addMarker(new MarkerOptions().position(loc).title(splited[1])
                     .snippet("Name: " + splited[0] + "\n"
@@ -140,7 +126,7 @@ public class MapActivity extends FragmentActivity implements GoogleMap.OnMyLocat
             if (markerCount == 0) {
                 Toast.makeText(
                         MapActivity.this,
-                        "Sorry! No results found for the filers you chose!",
+                        "Sorry, no results found! Please choose filters again!",
                         Toast.LENGTH_LONG
                 ).show();
 
