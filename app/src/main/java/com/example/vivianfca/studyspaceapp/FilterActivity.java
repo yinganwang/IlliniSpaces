@@ -281,38 +281,47 @@ public class FilterActivity extends AppCompatActivity {
                             for (String a : tmp) {
                                 if (a != null && hm.get(a) == count && !(filtered.contains(a))) {
                                     filtered.add(a);
+                                    info.add(nameArr[i]);
+                                    info.add("~");
+                                    info.add(buildingArr[i]);
+                                    info.add("~");
+                                    info.add(hoursArr[i]);
+                                    info.add("~");
+                                    info.add(typeArr[i]);
+                                    info.add("~");
+                                    info.add(locArr[i]);
+                                    info.add("~");
+                                    info.add(addressArr[i]);
+                                    info.add("~");
+                                    info.add(resourcesArr[i]);
+                                    info.add("~");
+                                    info.add(noiseArr[i]);
+                                    info.add("`");
                                 }
                             }
                         }//end of i loop
-                        for (String r : filtered) {
-                            for (int p = 0; p < JA.length(); p++) {
-                                if (addressArr[p].equals(r)) {
-                                    info.add(nameArr[p]);
-                                    info.add("*");
-                                    info.add(buildingArr[p]);
-                                    info.add(hoursArr[p]);
-                                    info.add(typeArr[p]);
-                                    info.add(resourcesArr[p]);
-                                    info.add(locArr[p]);
-                                    info.add(addressArr[p]);
-                                    info.add(resourcesArr[p]);
-                                    info.add(noiseArr[p]);
-                                    info.add("|");
-                                }
-                            }
-                            finalDisplay += r + "\n";
-                        }
+
+                        //@param filtered: a list of filtered addresses
+                        //@param info: a list of filtered object info
+                        //infostr: a string converted from info and is very very long with formatting
                         for (String r : info) {
-                            infostr += r + "\n";
+                            infostr += r;
                         }
-                        String[] infostrArray = infostr.split("\\|");
+                        Log.d("come", infostr);
+
+
+
+                        //infostrArray: an array of Strings of filtered objects(after merge, every object in the same location take into consideration
+                        String[] infostrArray = infostr.split("`");
+                        //System.out.println("findme" + infostrArray[12]);
+
                         ArrayList<String> infostrSplited = new ArrayList<> (Arrays.asList(infostrArray));
 
                         System.out.println("xixi" + finalDisplay);
                         Intent displayIntent = new Intent(FilterActivity.this, MapActivity.class);
                         displayIntent.putStringArrayListExtra("key", filtered);
                         displayIntent.putStringArrayListExtra("info", infostrSplited);
-                        //displayIntent.putArrayListExtra("JOinfo", readytoReturn);
+                        displayIntent.putExtra("Addinfo", finalDisplay);
 
                         // for explicit intents
                         // Intent i= new Intent(ActivityName.this,SecondActivity.class);

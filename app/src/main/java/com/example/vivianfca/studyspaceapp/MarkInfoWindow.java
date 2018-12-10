@@ -3,6 +3,7 @@ package com.example.vivianfca.studyspaceapp;
 import android.app.AppComponentFactory;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -20,10 +21,11 @@ public class MarkInfoWindow implements GoogleMap.InfoWindowAdapter {
     private View mWindow;
     private Context mContext;
 
+
     public MarkInfoWindow(Context context) {
         this.mContext = context;
         mWindow = LayoutInflater.from(context).inflate(R.layout.custom_info_window, null);
-
+        Log.d("ADAPTER", "here");
     }
 
 
@@ -47,17 +49,20 @@ public class MarkInfoWindow implements GoogleMap.InfoWindowAdapter {
 
     }
 
-    @Override
-    public View getInfoWindow(Marker marker) {
-        rendowWindowText(marker, mWindow);
-        return mWindow;
-    }
+//    mMap.setOnMarkerClickListener(new OnMarkerClickListener() {
 
-    @Override
-    public View getInfoContents(Marker marker) {
-        rendowWindowText(marker, mWindow);
-        return mWindow;
-    }
+        @Override
+        public View getInfoWindow (Marker marker){
+            rendowWindowText(marker, mWindow);
+            return mWindow;
+        }
+
+        @Override
+        public View getInfoContents (Marker marker){
+            rendowWindowText(marker, mWindow);
+            return mWindow;
+        }
+//    });
 
     //    public MarkInfoWindow(HashMap<Marker, String> MarkersInfo) {
 //        this.MarkersInfo = MarkersInfo;

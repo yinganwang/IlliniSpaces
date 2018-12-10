@@ -40,11 +40,12 @@ import java.util.List;
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
 
 
-    private GoogleMap mMap;
+    public GoogleMap mMap;
     List<Double> lat = new ArrayList<>();
     List<Double> lng = new ArrayList<>();
     ArrayList<String> info = new ArrayList<>();
     ArrayList<String> addresses = new ArrayList<>();
+    List<Marker> markers = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +64,17 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         // filtered info waiting to be displayed at map markers from filter Activity
 
         info = getIntent().getStringArrayListExtra("info");
+//        String addInfo = getIntent().getStringExtra("Addinfo");
+
+//        //String[][] huge = new String[96][8];
+//        String[] addSplited = addInfo.split("\\r?\\n");
+//        for (String add : addSplited) {
+//            if ()
+//        }
+
+
+
+
 
 
 //        System.out.println("lllll" + infostrFiltered);
@@ -88,6 +100,47 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         Marker mark = null;
+
+        mMap.setInfoWindowAdapter(new MarkInfoWindow(MapActivity.this));
+
+
+        // Add markers and move camera.
+        for (int i = 0; i < lat.size(); i++) {
+
+            LatLng loc = new LatLng(lat.get(i), lng.get(i));
+
+            String[] splited = info.get(i).split("~");
+
+
+                Log.d("Info", splited.length + "hapy");
+
+            mark = mMap.addMarker(new MarkerOptions().position(loc).title(splited[0])
+                    .snippet("Building: " + splited[1] + "\n"
+                            + "Hours: " + splited[2] + "\n"
+                            + "Type of Space: " + splited[3] + "\n"
+                            + "Location: " + splited[4] + "\n"
+                            + "Address: " + splited[5] + "\n"
+                            + "Resources: " + splited[6] + "\n"
+                            + "Noise Level: " + splited[7]));
+
+                markers.add(mark);
+//                displaySnippet.add(actualInfoStrSplited[j]);
+//                displayTitle.add(tripleSplited[0]);
+
+
+
+
+
+
+
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
+
+
+            }
+
+
+        //<-------------------------------------------new current location code------------------------------------------------------>
+
 
 
         //current loc code
@@ -122,69 +175,5 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         //set zoom to level to current so that you won't be able to zoom out viz. move outside bounds
         mMap.setMinZoomPreference(mMap.getCameraPosition().zoom);
 
-        String[] infoarr = (String[]) info.toArray();
-
-
-
-
-
-        String infostr = "";
-
-        for (String r : info) {
-            infostr += r + "\n";
         }
-//        System.out.println(info + "ojojoj");
-        String[] infostrSplited = infostr.split("\\|");
-//        System.out.println(infostr + "0h0h0h");
-
-        ArrayList<String> displaySnippet = new ArrayList<>();
-        ArrayList<String> displayTitle = new ArrayList<>();
-        HashMap<Marker, String> MarkersInfo = new HashMap<>();
-
-        mMap.setInfoWindowAdapter(new MarkInfoWindow(MapActivity.this));
-
-
-        // Add markers and move camera.
-        for (int i = 0; i < lat.size(); i++) {
-            for (int j = 0; j < infostrSplited.length; j++) {
-
-                LatLng loc = new LatLng(lat.get(i), lng.get(i));
-
-
-//                infostrrrrSplited = infostrrrr[j].split("\\|");
-
-                String[] tripleSplited = infostrSplited[j].split("\\*");
-//                System.out.println(tripleSplited[1] + "hahaha");
-//                System.out.println(infostrSplited[j] + "jijiji");
-
-
-
-                mark = mMap.addMarker(new MarkerOptions().position(loc).title(tripleSplited[0]).snippet(infostrSplited[j]));
-                System.out.println(infostrSplited[j] + "jijijiji");
-                displaySnippet.add(infostrSplited[j]);
-                displayTitle.add(tripleSplited[0]);
-//                mark.showInfoWindow();
-
-
-
-
-
-
-
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
-
-
-            }
-        }
-        mark.showInfoWindow();
-//        Intent markIntent = new Intent(MapActivity.this, MarkInfoWindow.class);
-//        markIntent.putStringArrayListExtra("snippetInfo", displaySnippet);
-//        markIntent.putStringArrayListExtra("snippetTitle", displayTitle);
-//
-
-
     }
-
-    //<-------------------------------------------new current location code------------------------------------------------------>
-
-}
