@@ -278,25 +278,55 @@ public class FilterActivity extends AppCompatActivity {
                                     }
                                 }//end of if checked
                             }//end of j loop
-                            for (String a : tmp) {
-                                if (a != null && hm.get(a) == count && !(filtered.contains(a))) {
-                                    filtered.add(a);
-                                    info.add(nameArr[i]);
-                                    info.add("~");
-                                    info.add(buildingArr[i]);
-                                    info.add("~");
-                                    info.add(hoursArr[i]);
-                                    info.add("~");
-                                    info.add(typeArr[i]);
-                                    info.add("~");
-                                    info.add(locArr[i]);
-                                    info.add("~");
-                                    info.add(addressArr[i]);
-                                    info.add("~");
-                                    info.add(resourcesArr[i]);
-                                    info.add("~");
-                                    info.add(noiseArr[i]);
-                                    info.add("`");
+
+                            if (count == 0) {
+                                tmp.add(addressArr[i]);
+                            }
+
+
+                            if (count != 0) {
+                                for (String a : tmp) {
+                                    if (a != null && hm.get(a) == count && !(filtered.contains(a))) {
+                                        filtered.add(a);
+                                        info.add(nameArr[i]);
+                                        info.add("~");
+                                        info.add(buildingArr[i]);
+                                        info.add("~");
+                                        info.add(hoursArr[i]);
+                                        info.add("~");
+                                        info.add(typeArr[i]);
+                                        info.add("~");
+                                        info.add(locArr[i]);
+                                        info.add("~");
+                                        info.add(addressArr[i]);
+                                        info.add("~");
+                                        info.add(resourcesArr[i]);
+                                        info.add("~");
+                                        info.add(noiseArr[i]);
+                                        info.add("`");
+                                    }
+                                }
+                            } else {
+                                for (String a : tmp) {
+                                    if (a != null && !(filtered.contains(a))) {
+                                        filtered.add(a);
+                                        info.add(nameArr[i]);
+                                        info.add("~");
+                                        info.add(buildingArr[i]);
+                                        info.add("~");
+                                        info.add(hoursArr[i]);
+                                        info.add("~");
+                                        info.add(typeArr[i]);
+                                        info.add("~");
+                                        info.add(locArr[i]);
+                                        info.add("~");
+                                        info.add(addressArr[i]);
+                                        info.add("~");
+                                        info.add(resourcesArr[i]);
+                                        info.add("~");
+                                        info.add(noiseArr[i]);
+                                        info.add("`");
+                                    }
                                 }
                             }
                         }//end of i loop

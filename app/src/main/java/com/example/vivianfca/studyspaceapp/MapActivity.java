@@ -21,6 +21,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
@@ -37,7 +38,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapActivity extends FragmentActivity implements GoogleMap.OnMyLocationButtonClickListener,
+        GoogleMap.OnMyLocationClickListener, OnMapReadyCallback {
 
 
     public GoogleMap mMap;
@@ -114,8 +116,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
                 Log.d("Info", splited.length + "hapy");
 
-            mark = mMap.addMarker(new MarkerOptions().position(loc).title(splited[0])
-                    .snippet("Building: " + splited[1] + "\n"
+            mark = mMap.addMarker(new MarkerOptions().position(loc).title(splited[1])
+                    .snippet("Name: " + splited[0] + "\n"
                             + "Hours: " + splited[2] + "\n"
                             + "Type of Space: " + splited[3] + "\n"
                             + "Location: " + splited[4] + "\n"
@@ -143,9 +145,16 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
 
 
+
+
         //current loc code
         if (!(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)) {
             mMap.setMyLocationEnabled(true);
+
+            mMap.getUiSettings().setMyLocationButtonEnabled(true);
+
+            mMap.setOnMyLocationButtonClickListener(this);
+            mMap.setOnMyLocationClickListener(this);
         }
 //
         LatLng one = new LatLng(40.096980, -88.213220);
@@ -176,4 +185,11 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         mMap.setMinZoomPreference(mMap.getCameraPosition().zoom);
 
         }
+
+    public void onMyLocationClick(@NonNull Location location) {
+    }
+
+    public boolean onMyLocationButtonClick() {
+        return false;
+    }
     }
