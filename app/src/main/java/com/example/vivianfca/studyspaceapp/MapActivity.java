@@ -140,7 +140,7 @@ public class MapActivity extends FragmentActivity implements GoogleMap.OnMyLocat
             if (markerCount == 0) {
                 Toast.makeText(
                         MapActivity.this,
-                        "Sorry! No results found for the filers you chose!",
+                        "Sorry! No results found for the filers you chose! Please Search Again!",
                         Toast.LENGTH_LONG
                 ).show();
 
