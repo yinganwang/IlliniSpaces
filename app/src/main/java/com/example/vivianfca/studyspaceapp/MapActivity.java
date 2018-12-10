@@ -102,6 +102,7 @@ public class MapActivity extends FragmentActivity implements GoogleMap.OnMyLocat
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         Marker mark = null;
+        int markerCount = 0;
 
         mMap.setInfoWindowAdapter(new MarkInfoWindow(MapActivity.this));
 
@@ -112,9 +113,7 @@ public class MapActivity extends FragmentActivity implements GoogleMap.OnMyLocat
             LatLng loc = new LatLng(lat.get(i), lng.get(i));
 
             String[] splited = info.get(i).split("~");
-
-
-                Log.d("Info", splited.length + "hapy");
+            
 
             mark = mMap.addMarker(new MarkerOptions().position(loc).title(splited[1])
                     .snippet("Name: " + splited[0] + "\n"
@@ -126,8 +125,7 @@ public class MapActivity extends FragmentActivity implements GoogleMap.OnMyLocat
                             + "Noise Level: " + splited[7]));
 
                 markers.add(mark);
-//                displaySnippet.add(actualInfoStrSplited[j]);
-//                displayTitle.add(tripleSplited[0]);
+                markerCount++;
 
 
 
@@ -137,6 +135,14 @@ public class MapActivity extends FragmentActivity implements GoogleMap.OnMyLocat
 
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
 
+
+            }
+            if (markerCount == 0) {
+                Toast.makeText(
+                        MapActivity.this,
+                        "Sorry! No results found for the filers you chose!",
+                        Toast.LENGTH_LONG
+                ).show();
 
             }
 
