@@ -80,18 +80,19 @@ public class MapActivity extends FragmentActivity implements GoogleMap.OnMyLocat
 
 
 //        System.out.println("lllll" + infostrFiltered);
-            for (int i = 0; i < value.size(); i++) {
-                Geocoder gc = new Geocoder(this);
-                try {
-                    List<Address> list = gc.getFromLocationName(value.get(i), 1);
-                    Address address = list.get(0);
-                    lat.add(address.getLatitude());
-                    lng.add(address.getLongitude());
 
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        for (int i = 0; i < value.size(); i++) {
+            Geocoder gc = new Geocoder(this);
+            try {
+                List<Address> list = gc.getFromLocationName(value.get(i), 1);
+                Address address = list.get(0);
+                lat.add(address.getLatitude());
+                lng.add(address.getLongitude());
+
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+        }
 
 
     }
@@ -101,42 +102,47 @@ public class MapActivity extends FragmentActivity implements GoogleMap.OnMyLocat
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         Marker mark = null;
+        int markerCount = 0;
 
         mMap.setInfoWindowAdapter(new MarkInfoWindow(MapActivity.this));
 
-//        if (info.size() == 0) {
-//            LatLng loc = new LatLng(88.2272,40.1092);
-//            mMap.addMarker(new MarkerOptions().position(loc).title("Please Search Again").snippet("Sorry, no spaces match your filters!"));
-//            mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
-//            mark.showInfoWindow();
-//        } else {
 
-            // Add markers and move camera.
-            for (int i = 0; i < lat.size(); i++) {
+        // Add markers and move camera.
+        for (int i = 0; i < lat.size(); i++) {
 
-                LatLng loc = new LatLng(lat.get(i), lng.get(i));
+            LatLng loc = new LatLng(lat.get(i), lng.get(i));
 
-                String[] splited = info.get(i).split("~");
+            String[] splited = info.get(i).split("~");
+            
 
-
-                Log.d("Info", splited.length + "hapy");
-
-                mark = mMap.addMarker(new MarkerOptions().position(loc).title(splited[1])
-                        .snippet("Name: " + splited[0] + "\n"
-                                + "Hours: " + splited[2] + "\n"
-                                + "Type of Space: " + splited[3] + "\n"
-                                + "Location: " + splited[4] + "\n"
-                                + "Address: " + splited[5] + "\n"
-                                + "Resources: " + splited[6] + "\n"
-                                + "Noise Level: " + splited[7]));
+            mark = mMap.addMarker(new MarkerOptions().position(loc).title(splited[1])
+                    .snippet("Name: " + splited[0] + "\n"
+                            + "Hours: " + splited[2] + "\n"
+                            + "Type of Space: " + splited[3] + "\n"
+                            + "Location: " + splited[4] + "\n"
+                            + "Address: " + splited[5] + "\n"
+                            + "Resources: " + splited[6] + "\n"
+                            + "Noise Level: " + splited[7]));
 
                 markers.add(mark);
-//                displaySnippet.add(actualInfoStrSplited[j]);
-//                displayTitle.add(tripleSplited[0]);
+                markerCount++;
+
+
+
+
+
 
 
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
 
+
+            }
+            if (markerCount == 0) {
+                Toast.makeText(
+                        MapActivity.this,
+                        "Sorry! No results found for the filers you chose!",
+                        Toast.LENGTH_LONG
+                ).show();
 
             }
 
