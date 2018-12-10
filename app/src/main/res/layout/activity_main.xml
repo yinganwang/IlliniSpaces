@@ -12,7 +12,7 @@
         android:layout_width="226dp"
         android:layout_height="60dp"
         android:layout_marginTop="60dp"
-        android:layout_marginRight="56dp"
+        android:layout_marginRight="60dp"
         android:text="SPACES"
         android:textAlignment="center"
         android:textColor="@android:color/white"
@@ -25,19 +25,19 @@
     <Button
         android:id="@+id/filter"
         android:layout_width="185dp"
-        android:layout_height="54dp"
+        android:layout_height="55dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="40dp"
         android:background="@drawable/round"
         android:text="apply filters"
         android:textColor="@android:color/white"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome" />
 
     <TextView
         android:id="@+id/welcome"
@@ -56,28 +56,50 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.055" />
+
+    <TextView
+        android:id="@+id/welcome2"
+        android:layout_width="304dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="196dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="monospace"
+        android:lineSpacingExtra="8sp"
+        android:text="Already know where to go?"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.737" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="219dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="5dp"
+        android:layout_width="194dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="4dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="164dp"
+        android:layout_marginBottom="60dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.664"
+        app:layout_constraintHorizontal_bias="0.58"
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/directSearch"
-            android:layout_width="168dp"
-            android:layout_height="54dp"
+            android:layout_width="169dp"
+            android:layout_height="47dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginEnd="36dp"
@@ -86,7 +108,7 @@
             android:background="@drawable/round"
             android:text="      direct search"
             android:textColor="@android:color/white"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -95,20 +117,19 @@
 
     <ImageButton
         android:id="@+id/imageButton4"
-        android:layout_width="45dp"
-        android:layout_height="54dp"
+        android:layout_width="39dp"
+        android:layout_height="46dp"
         android:layout_marginStart="3dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginBottom="123dp"
+        android:layout_marginBottom="77dp"
         android:background="@drawable/round"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.313"
+        app:layout_constraintHorizontal_bias="0.324"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/filter"
-        app:layout_constraintVertical_bias="0.395"
+        app:layout_constraintVertical_bias="0.984"
         app:srcCompat="@drawable/maps_96in128dp" />
 
     <LinearLayout
