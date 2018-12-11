@@ -66,6 +66,7 @@ public class MapActivity extends FragmentActivity implements GoogleMap.OnMyLocat
         mapFragment.getMapAsync(this);
 
 
+
         // filtered addresses from filter Activity
         ArrayList<String> value = getIntent().getStringArrayListExtra("key");
         addresses = value;
@@ -120,12 +121,6 @@ public class MapActivity extends FragmentActivity implements GoogleMap.OnMyLocat
             markers.add(mark);
             markerCount++;
 
-
-
-
-
-
-
             mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
 
 
@@ -143,60 +138,25 @@ public class MapActivity extends FragmentActivity implements GoogleMap.OnMyLocat
         //<-------------------------------------------new current location code------------------------------------------------------>
 
 
-
-        locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-        locationListener = new LocationListener() {
-
-            @Override
-            public void onLocationChanged(Location location) {
-                LatLng loca = new LatLng(location.getLatitude(), location.getLongitude());
-                Marker mark = mMap.addMarker(new MarkerOptions().position(loca).title("YOU ARE HERE").
-                        icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
-                mark.showInfoWindow();
-            }
-
-            @Override
-            public void onStatusChanged(String provider, int status, Bundle extras) {
-
-            }
-
-            @Override
-            public void onProviderEnabled(String provider) {
-
-            }
-
-            @Override
-            public void onProviderDisabled(String provider) {
-
-            }
-        };
-
-
         if (Build.VERSION.SDK_INT < 23) {
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+                //locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+
+                mMap.setMyLocationEnabled(true);
+                mMap.getUiSettings().setMyLocationButtonEnabled(true);
             }
         } else {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
             } else {
-                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+                //locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+
+                mMap.setMyLocationEnabled(true);
+                mMap.getUiSettings().setMyLocationButtonEnabled(true);
             }
         }
 
 
-
-
-        //current loc code
-        if (!(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)) {
-            mMap.setMyLocationEnabled(true);
-
-            mMap.getUiSettings().setMyLocationButtonEnabled(true);
-
-            mMap.setOnMyLocationButtonClickListener(this);
-            mMap.setOnMyLocationClickListener(this);
-        }
-//
         LatLng one = new LatLng(40.096980, -88.213220);
         LatLng two = new LatLng(40.118495, -88.235699);
 

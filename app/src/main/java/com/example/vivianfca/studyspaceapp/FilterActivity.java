@@ -40,12 +40,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.ExecutionException;
-//import com.example.vivianfca.studyspaceapp.FetchDataforFilter;
+
 
 public class FilterActivity extends AppCompatActivity {
-    //public List<String> filteredForDisplay;
-
-    //public String toPass = "hooo";
 
     CheckBox[] filterBoxes = new CheckBox[17];
 
@@ -53,10 +50,6 @@ public class FilterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter);
-
-//        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
-//        progressBar.setMax(10);
-
 
         Button filterSearch = (Button) findViewById(R.id.filterSearch);
         filterSearch.setText("Search");
@@ -162,25 +155,9 @@ public class FilterActivity extends AppCompatActivity {
 
                     String finalDisplay = "";
                     ArrayList<String> filtered = new ArrayList<>();
-                    //ArrayList<JSONObject> readytoReturn = new ArrayList<>();
+                    
                     JSONObject JO;
 
-
-
-
-//                    progressBar.setVisibility(View.INVISIBLE);
-//                    progressBar.setProgress(0);
-//                    switch (v.getId()) {
-//                        case R.id.filterSearch:
-//                            try {
-//                                String allData = new FetchDataforFilter().execute().get();
-//                            } catch (ExecutionException e) {
-//                                e.printStackTrace();
-//                            } catch (InterruptedException e) {
-//                                e.printStackTrace();
-//                            }
-//                            break;
-//                    }
                     try {
                         allData = new FetchDataforFilter().execute().get();
                         System.out.println("uuuuu" + allData);
