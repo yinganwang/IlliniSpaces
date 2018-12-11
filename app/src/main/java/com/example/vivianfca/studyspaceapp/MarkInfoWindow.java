@@ -33,9 +33,6 @@ public class MarkInfoWindow implements GoogleMap.InfoWindowAdapter {
 
         String title = marker.getTitle();
         TextView tvTitle = (TextView) view.findViewById(R.id.title);
-//        ArrayList<String> displayMark = getIntent().getString
-
-
 
 
         if (tvTitle != null && !tvTitle.equals("")) {
@@ -49,8 +46,6 @@ public class MarkInfoWindow implements GoogleMap.InfoWindowAdapter {
 
     }
 
-//    mMap.setOnMarkerClickListener(new OnMarkerClickListener() {
-
         @Override
         public View getInfoWindow (Marker marker){
             rendowWindowText(marker, mWindow);
@@ -62,28 +57,4 @@ public class MarkInfoWindow implements GoogleMap.InfoWindowAdapter {
             rendowWindowText(marker, mWindow);
             return mWindow;
         }
-//    });
-
-    //    public MarkInfoWindow(HashMap<Marker, String> MarkersInfo) {
-//        this.MarkersInfo = MarkersInfo;
-//    }
-//    @Override
-//    public View getInfoContents(Marker marker) {
-//        return null;
-//    }
-//    @Override
-//    public View getInfoWindow(final Marker marker) {
-//        String mark = MarkersInfo.get(marker);
-//        if (mark != null) {
-//            LayoutInflater inflater = (LayoutInflater) Controller.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//            view = inflater.inflate(R.layout.item_stop_marker_info, null);
-//
-//            TextView stopName = (TextView) view.findViewById(R.id.stop_name);
-//            stopName.setText(stop.getString("name"));
-//
-//            TextView stopLine = (TextView) view.findViewById(R.id.stop_line);
-//            stopLine.setText(stop.getString("line"));
-//        }
-//        return view;
-//    }
 }

@@ -96,38 +96,9 @@ public class FilterActivity extends AppCompatActivity {
         filterBoxes[15] = silent;
         filterBoxes[16] = notSilent;
 
-        String[] typeArr;
-        String[] resourcesArr;
-        String[] noiseArr;
-
-        String[] nameArr;
-        String[] buildingArr;
-        String[] hoursArr;
-        String[] locArr;
-        String[] addressArr;
-
-        String finalDisplay = "";
-        List<String> filtered = new ArrayList<>();
-
-        List<String> tmp = new ArrayList<>();
-        HashMap<String, Integer> hm = new HashMap<>();
-        int count = 0;
-
-        String[] splited;
-        List<String> splitedList = new ArrayList<>();
-
-
-
-
-
 
         //If the filter activity is invoked
         if (getIntent().hasExtra("com.example.vivianfca.StudySpaceApp.something")) {
-
-
-//            Intent displayIntent = new Intent(getApplicationContext(), DisplayActivity.class).putExtra("key2", filterBoxes);
-//            startActivity(displayIntent);
-
 
             //set onclick listener of the search button
             View.OnClickListener listener = new View.OnClickListener() {
@@ -155,7 +126,7 @@ public class FilterActivity extends AppCompatActivity {
 
                     String finalDisplay = "";
                     ArrayList<String> filtered = new ArrayList<>();
-                    
+
                     JSONObject JO;
 
                     try {
@@ -205,8 +176,6 @@ public class FilterActivity extends AppCompatActivity {
                         String infostr = "";
 
 
-
-                        //System.out.println("sssss" + JA.length());
                         for (int i = 0; i < JA.length(); i++) {
                             int count = 0;
 
@@ -214,9 +183,9 @@ public class FilterActivity extends AppCompatActivity {
                             HashMap<String, Integer> hm = new HashMap<>();
 
                             JO = (JSONObject) JA.get(i);
-                            //readytoReturn.add(JO);
+
                             tmpcount++;
-                            //System.out.println("bbbbb" + tmpcount + JO );
+
 
                             nameArr[i] = (String) JO.get("Name");
                             buildingArr[i] = (String) JO.get("Building");
@@ -320,7 +289,6 @@ public class FilterActivity extends AppCompatActivity {
 
                         //infostrArray: an array of Strings of filtered objects(after merge, every object in the same location take into consideration
                         String[] infostrArray = infostr.split("`");
-                        //System.out.println("findme" + infostrArray[12]);
 
                         ArrayList<String> infostrSplited = new ArrayList<> (Arrays.asList(infostrArray));
 
@@ -348,10 +316,6 @@ public class FilterActivity extends AppCompatActivity {
 
 
         }
-
-
-//        Intent test = new Intent(FilterActivity.this, DisplayActivity.class);
-//        startForegroundService(test);
     }
 }
 

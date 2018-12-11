@@ -87,8 +87,6 @@ public class MapActivity extends FragmentActivity implements GoogleMap.OnMyLocat
                 e.printStackTrace();
             }
         }
-
-
     }
 
 
@@ -135,7 +133,7 @@ public class MapActivity extends FragmentActivity implements GoogleMap.OnMyLocat
         }
 
 
-        //<-------------------------------------------new current location code------------------------------------------------------>
+        //<-------------------------------------------current location code------------------------------------------------------>
 
 
         if (Build.VERSION.SDK_INT < 23) {
@@ -204,8 +202,5 @@ public class MapActivity extends FragmentActivity implements GoogleMap.OnMyLocat
                 }
             }
         }
-
     }
-
-
 }
