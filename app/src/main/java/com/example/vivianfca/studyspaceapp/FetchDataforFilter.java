@@ -27,34 +27,6 @@ public class FetchDataforFilter extends AsyncTask<Void,Integer,String> {
 
 
     String data = "";
-    JSONArray JA = null;
-    List<JSONObject> toReturn = new ArrayList<>();
-
-    String[] typeArr;
-    String[] resourcesArr;
-    String[] noiseArr;
-
-    String[] nameArr;
-    String[] buildingArr;
-    String[] hoursArr;
-    String[] locArr;
-    String[] addressArr;
-
-    String finalDisplay = "";
-    List<String> filtered = new ArrayList<>();
-
-    List<String> tmp = new ArrayList<>();
-    HashMap<String, Integer> hm = new HashMap<>();
-    int count = 0;
-
-    String[] splited;
-    List<String> splitedList = new ArrayList<>();
-
-    String dataParsed = "";
-    // String singleParsed = "";
-    // List<JSONObject> toReturn = toReturn;
-    // String[][] dataArray;
-
 
 
     protected String doInBackground(Void... params) {
