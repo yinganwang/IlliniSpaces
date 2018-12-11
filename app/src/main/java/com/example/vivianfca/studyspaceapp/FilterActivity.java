@@ -318,32 +318,3 @@ public class FilterActivity extends AppCompatActivity {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-    //----------------------parse data after filtering--------//
-
-
-//            singleParsed = "Name" + JO.get("Name") + "\n"
-//                    + "Building" + JO.get("Building") + "\n"
-//                    + "Hours" + JO.get("Hours") + "\n"
-//                    + "Type of Space" + JO.get("Type of Space") + "\n"
-//                    + "Location" + JO.get("Location") + "\n"
-//                    + "Address" + JO.get("Address") + "\n"
-//                    + "Resources" + JO.get("Resources") + "\n"
-//                    + "Noise Level" + JO.get("Noise Level");
-//            dataParsed = dataParsed + singleParsed + "\n";
-
-//
-//                String[] singleVariable = new String[8];
-//                dataArray[i] = singleDataArray;
-//            }

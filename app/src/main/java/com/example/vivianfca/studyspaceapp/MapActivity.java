@@ -44,7 +44,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class MapActivity extends FragmentActivity implements GoogleMap.OnMyLocationButtonClickListener,
-        GoogleMap.OnMyLocationClickListener, OnMapReadyCallback {
+    GoogleMap.OnMyLocationClickListener, OnMapReadyCallback {
 
     LocationManager locationManager;
     LocationListener locationListener;
